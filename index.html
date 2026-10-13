@@ -343,6 +343,24 @@ footer b{color:#fff;display:block;margin-bottom:8px;font-family:var(--f-display)
 .ex-big .pl::before{content:"";border-left:26px solid var(--amber-ink);border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:7px}
 .ex-more{display:inline-flex;margin-top:14px;font-weight:700;font-size:15px;color:var(--ink)}
 
+/* ===== FOLLOW / SOCIALS ===== */
+.follow{margin-top:40px;padding:24px;border-radius:16px;background:var(--storm-2);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center}
+.follow h3{font-size:clamp(26px,3vw,34px);color:#fff}
+.follow p{margin-top:8px;color:var(--rain);max-width:44ch}
+.socials{display:flex;flex-wrap:wrap;gap:12px}
+.soc{display:flex;align-items:center;gap:12px;min-width:170px;padding:12px 16px;border-radius:12px;text-decoration:none;color:#fff;transition:transform .15s ease}
+.soc:hover{transform:translateY(-2px)}
+.soc svg{width:28px;height:28px;flex:none}
+.soc b{display:block;font:800 17px/1.1 var(--f-body)}
+.soc small{display:block;font-size:13px;opacity:.85;font-weight:600}
+.soc.fb{background:#1877f2}
+.soc.yt{background:#e62117}
+.soc.tt{background:#000;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.foot-soc{display:flex;gap:10px;margin-top:12px}
+.foot-soc a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.1);color:#fff}
+.foot-soc svg{width:20px;height:20px}
+@media (max-width:860px){.follow{grid-template-columns:1fr}.soc{flex:1 1 160px;min-width:0}}
+
 /* ===== TYPE REFRESH: punchy condensed headlines + amber highlight (FB-thumbnail energy) ===== */
 body{font-size:17px}
 h2{font-size:clamp(40px,6.6vw,82px);font-weight:900;font-stretch:70%;line-height:.92;letter-spacing:-.005em;text-transform:uppercase}
@@ -613,7 +631,7 @@ details p{font-size:17px}
   <div class="wrap">
     <p class="eyebrow"><span class="ms">Tonton sendiri</span><span class="en">Watch for yourself</span></p>
     <h2><span class="ms"><span class="hl">2.6 juta</span> tontonan.</span><span class="en"><span class="hl">2.6 million</span> views.</span></h2>
-    <p class="lead"><span class="ms">Kerja sebenar. Rumah pelanggan sebenar.</span><span class="en">Real work. Real customers' homes.</span></p>
+    <p class="lead"><span class="ms">Kerja sebenar. Rumah pelanggan sebenar. Tonton di Facebook, YouTube &amp; TikTok.</span><span class="en">Real work. Real customers' homes. Watch on Facebook, YouTube &amp; TikTok.</span></p>
     <div class="feat">
       <a class="vcard" href="https://www.facebook.com/reel/545211821346250/" target="_blank" rel="noopener"><img src="img/v-545211821346250.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views"><span class="ms">2 juta tontonan</span><span class="en">2M views</span></span><span class="vt"><span class="ms">5 kali baiki, masih bocor?</span><span class="en">Fixed 5 times, still leaking?</span></span></span></a>
       <a class="vcard" href="https://www.facebook.com/reel/1350791423012841/" target="_blank" rel="noopener"><img src="img/v-1350791423012841.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views"><span class="ms">663 ribu tontonan</span><span class="en">663K views</span></span><span class="vt"><span class="ms">Jangan kena scam!</span><span class="en">Don't get scammed!</span></span></span></a>
@@ -628,7 +646,26 @@ details p{font-size:17px}
       <a class="vcard" href="https://www.facebook.com/reel/39174899152124947/" target="_blank" rel="noopener"><img src="img/v-39174899152124947.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">670 <span class="ms">tontonan</span><span class="en">views</span></span><span class="vt"><span class="ms">Double decking, Kulim</span><span class="en">Double decking, Kulim</span></span></span></a>
       <a class="vcard" href="https://www.facebook.com/reel/1615521840218132/" target="_blank" rel="noopener"><img src="img/v-1615521840218132.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">305 <span class="ms">tontonan</span><span class="en">views</span></span><span class="vt"><span class="ms">Kedai 3 tingkat bocor</span><span class="en">3-storey shop leak</span></span></span></a>
     </div>
-    <a class="fblink" href="https://www.facebook.com/inokalissb/reels" target="_blank" rel="noopener"><span class="ms">Semua video di Facebook →</span><span class="en">All videos on Facebook →</span></a>
+    <div class="follow">
+      <div class="follow-tx">
+        <h3><span class="ms">Like &amp; follow <span class="hl">INOKALIS</span></span><span class="en">Like &amp; follow <span class="hl">INOKALIS</span></span></h3>
+        <p><span class="ms">Dapatkan video projek, tips bumbung &amp; kes bocor terbaru terus di telefon anda.</span><span class="en">Get our latest project videos, roof tips &amp; leak cases straight on your phone.</span></p>
+      </div>
+      <div class="socials">
+        <a class="soc fb" href="https://www.facebook.com/inokalissb" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V14h2.7v8h3.1Z"/></svg>
+          <span><b>Facebook</b><small><span class="ms">Like page kami</span><span class="en">Like our page</span></small></span>
+        </a>
+        <a class="soc yt" href="https://www.youtube.com/@Inokalis" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.8 3.1-5.8 3.1Z"/></svg>
+          <span><b>YouTube</b><small><span class="ms">Subscribe</span><span class="en">Subscribe</span></small></span>
+        </a>
+        <a class="soc tt" href="https://www.tiktok.com/@inokalis" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.2a6.2 6.2 0 1 0 5.3 6.2V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.4Z"/></svg>
+          <span><b>TikTok</b><small><span class="ms">Follow kami</span><span class="en">Follow us</span></small></span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -859,6 +896,11 @@ details p{font-size:17px}
       <b>INOKALIS SDN. BHD.</b>
       <p>202401052999 (1598842-A)</p>
       <p style="margin-top:8px">Kawasan Perindustrian Ringan, 36, Lengkok Jelapang Maju, Jelapang, 30020 Ipoh, Perak</p>
+      <div class="foot-soc">
+        <a href="https://www.facebook.com/inokalissb" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V14h2.7v8h3.1Z"/></svg></a>
+        <a href="https://www.youtube.com/@Inokalis" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.8 3.1-5.8 3.1Z"/></svg></a>
+        <a href="https://www.tiktok.com/@inokalis" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.2a6.2 6.2 0 1 0 5.3 6.2V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.4Z"/></svg></a>
+      </div>
     </div>
     <div>
       <b><span class="ms">Telefon / WhatsApp</span><span class="en">Phone / WhatsApp</span></b>
