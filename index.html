@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Public+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@500;700;900&display=swap">
 <style>
 /* Layout: storm-dark hero → wet-ceiling pain → light "dry" solution sections → amber offer + form. Single deliberate light/storm look. */
 :root{
@@ -29,8 +29,8 @@
   --wa:#1f9d55;           /* WhatsApp green, CTA only */
   --danger:#c2412d;
   --ok:#2c7a4b;
-  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
-  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-display:"Archivo","Noto Sans SC","PingFang SC","Microsoft YaHei","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Public Sans","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:10px;
   color-scheme:light;
 }
@@ -38,7 +38,11 @@
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
-[data-lang="ms"] .en,[data-lang="en"] .ms{display:none!important}
+[data-lang="ms"] .en,[data-lang="ms"] .zh,[data-lang="en"] .ms,[data-lang="en"] .zh,[data-lang="zh"] .ms,[data-lang="zh"] .en{display:none!important}
+/* Chinese: CJK glyphs need more leading than the condensed Latin display face */
+[data-lang="zh"] h1,[data-lang="zh"] h2{line-height:1.12;letter-spacing:0}
+[data-lang="zh"] h3,[data-lang="zh"] .vcard .vt,[data-lang="zh"] .ex-cap p,[data-lang="zh"] summary,[data-lang="zh"] .mission blockquote{line-height:1.25;letter-spacing:0}
+[data-lang="zh"] .eyebrow{letter-spacing:.08em}
 .wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
 h1,h2,h3{font-family:var(--f-display);line-height:1.05;text-wrap:balance;margin:0}
 h2{font-size:clamp(30px,4.6vw,48px);font-weight:850;font-stretch:88%;letter-spacing:-.01em}
@@ -350,6 +354,7 @@ footer b{color:#fff;display:block;margin-bottom:8px;font-family:var(--f-display)
 .brand-logo{width:50px;height:50px;object-fit:contain;background:#fff;border-radius:50%;padding:3px;flex:none}
 .foot-logo{display:block;width:120px;height:auto;background:#fff;border-radius:14px;padding:8px;margin-bottom:16px}
 @media (max-width:420px){.brand small{display:none}.brand-logo{width:44px;height:44px}}
+@media (max-width:480px){.brand > span{display:none}.top .wrap{gap:10px}.lang button{padding:8px 10px}}
 
 /* ===== FOLLOW / SOCIALS ===== */
 .follow{margin-top:40px;padding:24px;border-radius:16px;background:var(--storm-2);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center}
@@ -444,6 +449,7 @@ details p{font-size:17px}
     <div class="lang" role="group" aria-label="Bahasa / Language">
       <button type="button" id="lang-ms" data-set="ms" aria-pressed="true">BM</button>
       <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
+      <button type="button" id="lang-zh" data-set="zh" aria-pressed="false">中文</button>
     </div>
     <a class="btn btn-wa wa-link" href="https://wa.me/60102810866" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.2 1.1Z"/></svg>
@@ -460,29 +466,29 @@ details p{font-size:17px}
       <p class="eyebrow">Ipoh · Perak · Pulau Pinang · Kedah</p>
       <h1 style="margin-top:18px">
         <span class="ms">Dah baiki.<br><span class="hl">Masih bocor?</span></span>
-        <span class="en">Fixed it.<br><span class="hl">Still leaking?</span></span>
+        <span class="en">Fixed it.<br><span class="hl">Still leaking?</span></span><span class="zh">修过了，<br><span class="hl">还在漏？</span></span>
       </h1>
       <p class="sub">
         <span class="ms">Setiap kali hujan, hati risau. Kami <b>cari punca sebenar</b> dan <b>baiki sekali.</b></span>
-        <span class="en">Every rain brings worry. We <b>find the real cause</b> and <b>fix it once.</b></span>
+        <span class="en">Every rain brings worry. We <b>find the real cause</b> and <b>fix it once.</b></span><span class="zh">每逢下雨就担心。我们<b>找出真正源头</b>，<b>一次修好。</b></span>
       </p>
       <div class="ctas">
-        <a class="btn btn-amber" href="#semak"><span class="ms">Semak rumah saya (30 saat)</span><span class="en">Check my home (30 sec)</span></a>
-        <a class="btn btn-ghost" href="#tempah"><span class="ms">Pemeriksaan PERCUMA</span><span class="en">FREE inspection</span></a>
+        <a class="btn btn-amber" href="#semak"><span class="ms">Semak rumah saya (30 saat)</span><span class="en">Check my home (30 sec)</span><span class="zh">检查我家（30 秒）</span></a>
+        <a class="btn btn-ghost" href="#tempah"><span class="ms">Pemeriksaan PERCUMA</span><span class="en">FREE inspection</span><span class="zh">免费检查</span></a>
       </div>
       <div class="trust">
-        <span><span class="ms">20+ tahun pengalaman</span><span class="en">20+ years' experience</span></span>
-        <span><span class="ms">Waranti hingga 10 tahun</span><span class="en">Up to 10-year warranty</span></span>
-        <span><a href="#video" style="color:inherit"><span class="ms">2.6 juta tontonan</span><span class="en">2.6M video views</span></a></span>
+        <span><span class="ms">20+ tahun pengalaman</span><span class="en">20+ years' experience</span><span class="zh">20+ 年经验</span></span>
+        <span><span class="ms">Waranti hingga 10 tahun</span><span class="en">Up to 10-year warranty</span><span class="zh">保修长达 10 年</span></span>
+        <span><a href="#video" style="color:inherit"><span class="ms">2.6 juta tontonan</span><span class="en">2.6M video views</span><span class="zh">视频观看 260 万次</span></a></span>
       </div>
     </div>
     <figure class="shot">
       <img class="main" src="img/hero-main.jpg" alt="Pekerja INOKALIS dengan abah-abah keselamatan memasang penebat dan bateng logam di atas bumbung">
       <img class="team" src="img/hero-team.jpg" alt="Pasukan INOKALIS memasang membran kalis air di bumbung kilang, Chemor">
-      <figcaption class="tag"><span class="ms"><b>Pasukan INOKALIS</b> di tapak.</span><span class="en"><b>The INOKALIS team</b> on site.</span></figcaption>
+      <figcaption class="tag"><span class="ms"><b>Pasukan INOKALIS</b> di tapak.</span><span class="en"><b>The INOKALIS team</b> on site.</span><span class="zh"><b>INOKALIS 团队</b>在工地。</span></figcaption>
       <div class="cidb" id="cidb-badge">
         <img src="img/cidb.png" alt="CIDB Malaysia Registered Contractor">
-        <span><b><span class="ms">Berdaftar CIDB</span><span class="en">CIDB Registered</span></b><small><span class="ms">Patuh keselamatan DOSH</span><span class="en">DOSH safety compliant</span></small></span>
+        <span><b><span class="ms">Berdaftar CIDB</span><span class="en">CIDB Registered</span><span class="zh">CIDB 注册</span></b><small><span class="ms">Patuh keselamatan DOSH</span><span class="en">DOSH safety compliant</span><span class="zh">符合 DOSH 安全标准</span></small></span>
       </div>
     </figure>
   </div>
@@ -491,58 +497,58 @@ details p{font-size:17px}
 <!-- 2. PAIN -->
 <section class="pain" id="masalah">
   <div class="wrap">
-    <p class="eyebrow"><span class="ms">Kenal rasa ni?</span><span class="en">Sound familiar?</span></p>
-    <h2><span class="ms">Bocor tak habis.<br><span class="hl">Stres pun tak habis.</span></span><span class="en">The leak won't stop.<br><span class="hl">Neither does the stress.</span></span></h2>
+    <p class="eyebrow"><span class="ms">Kenal rasa ni?</span><span class="en">Sound familiar?</span><span class="zh">是不是很熟悉？</span></p>
+    <h2><span class="ms">Bocor tak habis.<br><span class="hl">Stres pun tak habis.</span></span><span class="en">The leak won't stop.<br><span class="hl">Neither does the stress.</span></span><span class="zh">漏水没完没了，<br><span class="hl">压力也没完没了。</span></span></h2>
     <div class="grid">
-      <article class="pcard"><p class="q"><span class="ms">Duit</span><span class="en">Money</span></p><h3><span class="ms">5× baiki. Masih bocor.</span><span class="en">Fixed 5×. Still leaking.</span></h3><p><span class="ms">Sealant, cat, zink. Semua dah cuba.</span><span class="en">Sealant, paint, zinc. Tried it all.</span></p></article>
-      <article class="pcard"><p class="q"><span class="ms">Tidur</span><span class="en">Sleep</span></p><h3><span class="ms">3 pagi alih baldi.</span><span class="en">3 a.m. bucket duty.</span></h3><p><span class="ms">Dengar hujan, terus terjaga.</span><span class="en">Rain starts, you're wide awake.</span></p></article>
-      <article class="pcard"><p class="q"><span class="ms">Fikiran</span><span class="en">Mind</span></p><h3><span class="ms">Risau tinggal rumah.</span><span class="en">Anxious leaving home.</span></h3><p><span class="ms">Asyik semak ramalan cuaca.</span><span class="en">Always checking the forecast.</span></p></article>
-      <article class="pcard"><p class="q"><span class="ms">Keluarga</span><span class="en">Family</span></p><h3><span class="ms">Kulat. Bau hapak.</span><span class="en">Mould. Musty smell.</span></h3><p><span class="ms">Anak-anak asyik batuk.</span><span class="en">The kids keep coughing.</span></p></article>
-      <article class="pcard"><p class="q"><span class="ms">Maruah</span><span class="en">Pride</span></p><h3><span class="ms">Segan tetamu datang.</span><span class="en">Embarrassed by guests.</span></h3><p><span class="ms">Siling bertompok, baldi di ruang tamu.</span><span class="en">Stained ceiling, bucket in the living room.</span></p></article>
-      <article class="pcard"><p class="q"><span class="ms">Bahaya</span><span class="en">Danger</span></p><h3><span class="ms">Air dekat lampu.</span><span class="en">Water near the lights.</span></h3><p><span class="ms">Risiko litar pintas &amp; siling runtuh.</span><span class="en">Risk of short circuit &amp; ceiling collapse.</span></p></article>
+      <article class="pcard"><p class="q"><span class="ms">Duit</span><span class="en">Money</span><span class="zh">金钱</span></p><h3><span class="ms">5× baiki. Masih bocor.</span><span class="en">Fixed 5×. Still leaking.</span><span class="zh">修了 5 次，还在漏。</span></h3><p><span class="ms">Sealant, cat, zink. Semua dah cuba.</span><span class="en">Sealant, paint, zinc. Tried it all.</span><span class="zh">硅胶、油漆、铁皮，全都试过了。</span></p></article>
+      <article class="pcard"><p class="q"><span class="ms">Tidur</span><span class="en">Sleep</span><span class="zh">睡眠</span></p><h3><span class="ms">3 pagi alih baldi.</span><span class="en">3 a.m. bucket duty.</span><span class="zh">凌晨 3 点起来搬桶。</span></h3><p><span class="ms">Dengar hujan, terus terjaga.</span><span class="en">Rain starts, you're wide awake.</span><span class="zh">一下雨，马上醒过来。</span></p></article>
+      <article class="pcard"><p class="q"><span class="ms">Fikiran</span><span class="en">Mind</span><span class="zh">心情</span></p><h3><span class="ms">Risau tinggal rumah.</span><span class="en">Anxious leaving home.</span><span class="zh">出门都不安心。</span></h3><p><span class="ms">Asyik semak ramalan cuaca.</span><span class="en">Always checking the forecast.</span><span class="zh">一直在看天气预报。</span></p></article>
+      <article class="pcard"><p class="q"><span class="ms">Keluarga</span><span class="en">Family</span><span class="zh">家人</span></p><h3><span class="ms">Kulat. Bau hapak.</span><span class="en">Mould. Musty smell.</span><span class="zh">发霉，霉味重。</span></h3><p><span class="ms">Anak-anak asyik batuk.</span><span class="en">The kids keep coughing.</span><span class="zh">孩子常常咳嗽。</span></p></article>
+      <article class="pcard"><p class="q"><span class="ms">Maruah</span><span class="en">Pride</span><span class="zh">面子</span></p><h3><span class="ms">Segan tetamu datang.</span><span class="en">Embarrassed by guests.</span><span class="zh">客人来了很尴尬。</span></h3><p><span class="ms">Siling bertompok, baldi di ruang tamu.</span><span class="en">Stained ceiling, bucket in the living room.</span><span class="zh">天花板有水渍，客厅摆着水桶。</span></p></article>
+      <article class="pcard"><p class="q"><span class="ms">Bahaya</span><span class="en">Danger</span><span class="zh">危险</span></p><h3><span class="ms">Air dekat lampu.</span><span class="en">Water near the lights.</span><span class="zh">水漏到电灯旁。</span></h3><p><span class="ms">Risiko litar pintas &amp; siling runtuh.</span><span class="en">Risk of short circuit &amp; ceiling collapse.</span><span class="zh">可能短路，天花板可能塌下。</span></p></article>
     </div>
-    <p class="kicker"><span class="ms">Anda tak keseorangan. Ramai pelanggan kami datang selepas 3–5 kali gagal dibaiki.</span><span class="en">You're not alone. Many customers came to us after 3–5 failed repairs.</span></p>
+    <p class="kicker"><span class="ms">Anda tak keseorangan. Ramai pelanggan kami datang selepas 3–5 kali gagal dibaiki.</span><span class="en">You're not alone. Many customers came to us after 3–5 failed repairs.</span><span class="zh">您并不孤单。很多顾客是修了 3–5 次都失败后才来找我们。</span></p>
   </div>
 </section>
 
 <!-- 3. AGITATE -->
 <section class="agitate">
   <div class="wrap">
-    <p class="eyebrow"><span class="ms">Kalau dibiarkan</span><span class="en">If you wait</span></p>
-    <h2><span class="ms">Bocor kecil hari ini.<br><span class="hl">Siling runtuh esok.</span></span><span class="en">Small leak today.<br><span class="hl">Collapsed ceiling tomorrow.</span></span></h2>
+    <p class="eyebrow"><span class="ms">Kalau dibiarkan</span><span class="en">If you wait</span><span class="zh">如果拖着不修</span></p>
+    <h2><span class="ms">Bocor kecil hari ini.<br><span class="hl">Siling runtuh esok.</span></span><span class="en">Small leak today.<br><span class="hl">Collapsed ceiling tomorrow.</span></span><span class="zh">今天小漏，<br><span class="hl">明天天花板塌。</span></span></h2>
     <ol class="tl">
-      <li><div class="bar"></div><p class="when"><span class="ms">Minggu 1</span><span class="en">Week 1</span></p><h3><span class="ms">Tompok air</span><span class="en">Water stain</span></h3><p><span class="ms">Kebanyakan orang abaikan.</span><span class="en">Most people ignore it.</span></p></li>
-      <li><div class="bar"></div><p class="when"><span class="ms">1–3 bulan</span><span class="en">1–3 months</span></p><h3><span class="ms">Kulat merebak</span><span class="en">Mould spreads</span></h3><p><span class="ms">Cat mengelupas, bau hapak.</span><span class="en">Peeling paint, musty smell.</span></p></li>
-      <li><div class="bar"></div><p class="when"><span class="ms">Hujan seterusnya</span><span class="en">Next rainy season</span></p><h3><span class="ms">Kayu reput</span><span class="en">Timber rots</span></h3><p><span class="ms">Anai-anai mula datang.</span><span class="en">Termites move in.</span></p></li>
-      <li><div class="bar"></div><p class="when"><span class="ms">Akhirnya</span><span class="en">Eventually</span></p><h3><span class="ms">Siling runtuh</span><span class="en">Ceiling falls</span></h3><p><span class="ms">Kos baiki berganda.</span><span class="en">Repair cost multiplies.</span></p></li>
+      <li><div class="bar"></div><p class="when"><span class="ms">Minggu 1</span><span class="en">Week 1</span><span class="zh">第 1 周</span></p><h3><span class="ms">Tompok air</span><span class="en">Water stain</span><span class="zh">水渍</span></h3><p><span class="ms">Kebanyakan orang abaikan.</span><span class="en">Most people ignore it.</span><span class="zh">多数人不理会。</span></p></li>
+      <li><div class="bar"></div><p class="when"><span class="ms">1–3 bulan</span><span class="en">1–3 months</span><span class="zh">1–3 个月</span></p><h3><span class="ms">Kulat merebak</span><span class="en">Mould spreads</span><span class="zh">霉菌扩散</span></h3><p><span class="ms">Cat mengelupas, bau hapak.</span><span class="en">Peeling paint, musty smell.</span><span class="zh">油漆脱落，霉味重。</span></p></li>
+      <li><div class="bar"></div><p class="when"><span class="ms">Hujan seterusnya</span><span class="en">Next rainy season</span><span class="zh">下一个雨季</span></p><h3><span class="ms">Kayu reput</span><span class="en">Timber rots</span><span class="zh">木材腐烂</span></h3><p><span class="ms">Anai-anai mula datang.</span><span class="en">Termites move in.</span><span class="zh">白蚁上门。</span></p></li>
+      <li><div class="bar"></div><p class="when"><span class="ms">Akhirnya</span><span class="en">Eventually</span><span class="zh">最后</span></p><h3><span class="ms">Siling runtuh</span><span class="en">Ceiling falls</span><span class="zh">天花板塌下</span></h3><p><span class="ms">Kos baiki berganda.</span><span class="en">Repair cost multiplies.</span><span class="zh">维修费翻倍。</span></p></li>
     </ol>
-    <p class="warn"><span class="ms"><b>Tengkujuh bermula November.</b> Baiki sekarang, sebelum hujan lebat.</span><span class="en"><b>Monsoon starts in November.</b> Fix it now, before the heavy rain.</span></p>
+    <p class="warn"><span class="ms"><b>Tengkujuh bermula November.</b> Baiki sekarang, sebelum hujan lebat.</span><span class="en"><b>Monsoon starts in November.</b> Fix it now, before the heavy rain.</span><span class="zh"><b>季候风 11 月开始。</b>趁大雨来之前，现在就修。</span></p>
   </div>
 </section>
 
 <!-- 4. SELF-CHECK -->
 <section class="quiz" id="semak">
   <div class="wrap">
-    <p class="eyebrow"><span class="ms">Semakan 30 saat</span><span class="en">30-second check</span></p>
-    <h2><span class="ms">Seteruk mana<br><span class="hl">rumah anda?</span></span><span class="en">How bad is<br><span class="hl">your home?</span></span></h2>
-    <p class="lead"><span class="ms">Tanda apa yang anda nampak.</span><span class="en">Tick what you see.</span></p>
+    <p class="eyebrow"><span class="ms">Semakan 30 saat</span><span class="en">30-second check</span><span class="zh">30 秒检查</span></p>
+    <h2><span class="ms">Seteruk mana<br><span class="hl">rumah anda?</span></span><span class="en">How bad is<br><span class="hl">your home?</span></span><span class="zh">您家漏水<br><span class="hl">有多严重？</span></span></h2>
+    <p class="lead"><span class="ms">Tanda apa yang anda nampak.</span><span class="en">Tick what you see.</span><span class="zh">勾选您看到的情况。</span></p>
     <div class="box">
       <div class="checks" id="checks">
-        <label class="chk"><input type="checkbox" id="s1" value="stain" data-w="1"><span><span class="ms">Tompok air di siling</span><span class="en">Water stain on ceiling</span></span></label>
-        <label class="chk"><input type="checkbox" id="s2" value="drip" data-w="2"><span><span class="ms">Menitis bila hujan lebat</span><span class="en">Drips in heavy rain</span></span></label>
-        <label class="chk"><input type="checkbox" id="s3" value="mould" data-w="1"><span><span class="ms">Kulat / cat menggelembung</span><span class="en">Mould / bubbling paint</span></span></label>
-        <label class="chk"><input type="checkbox" id="s4" value="sag" data-w="3"><span><span class="ms">Siling mengendur / retak</span><span class="en">Ceiling sagging / cracked</span></span></label>
-        <label class="chk"><input type="checkbox" id="s5" value="electric" data-w="3"><span><span class="ms">Air dekat lampu / kipas</span><span class="en">Water near lights / fans</span></span></label>
-        <label class="chk"><input type="checkbox" id="s6" value="repeat" data-w="2"><span><span class="ms">Dah baiki, bocor semula</span><span class="en">Repaired, leaks again</span></span></label>
-        <label class="chk"><input type="checkbox" id="s7" value="tiles" data-w="1"><span><span class="ms">Genting pecah / beralih</span><span class="en">Broken / shifted tiles</span></span></label>
-        <label class="chk"><input type="checkbox" id="s8" value="slab" data-w="2"><span><span class="ms">Bocor dari slab / bumbung rata</span><span class="en">Leak from slab / flat roof</span></span></label>
+        <label class="chk"><input type="checkbox" id="s1" value="stain" data-w="1"><span><span class="ms">Tompok air di siling</span><span class="en">Water stain on ceiling</span><span class="zh">天花板有水渍</span></span></label>
+        <label class="chk"><input type="checkbox" id="s2" value="drip" data-w="2"><span><span class="ms">Menitis bila hujan lebat</span><span class="en">Drips in heavy rain</span><span class="zh">大雨时滴水</span></span></label>
+        <label class="chk"><input type="checkbox" id="s3" value="mould" data-w="1"><span><span class="ms">Kulat / cat menggelembung</span><span class="en">Mould / bubbling paint</span><span class="zh">发霉 / 油漆起泡</span></span></label>
+        <label class="chk"><input type="checkbox" id="s4" value="sag" data-w="3"><span><span class="ms">Siling mengendur / retak</span><span class="en">Ceiling sagging / cracked</span><span class="zh">天花板下垂 / 裂开</span></span></label>
+        <label class="chk"><input type="checkbox" id="s5" value="electric" data-w="3"><span><span class="ms">Air dekat lampu / kipas</span><span class="en">Water near lights / fans</span><span class="zh">电灯 / 风扇旁有水</span></span></label>
+        <label class="chk"><input type="checkbox" id="s6" value="repeat" data-w="2"><span><span class="ms">Dah baiki, bocor semula</span><span class="en">Repaired, leaks again</span><span class="zh">修过了，又再漏</span></span></label>
+        <label class="chk"><input type="checkbox" id="s7" value="tiles" data-w="1"><span><span class="ms">Genting pecah / beralih</span><span class="en">Broken / shifted tiles</span><span class="zh">瓦片破裂 / 移位</span></span></label>
+        <label class="chk"><input type="checkbox" id="s8" value="slab" data-w="2"><span><span class="ms">Bocor dari slab / bumbung rata</span><span class="en">Leak from slab / flat roof</span><span class="zh">混凝土平顶 / 平屋顶漏水</span></span></label>
       </div>
       <aside class="result" aria-live="polite">
         <p class="count" id="q-count"></p>
         <div class="meter"><i id="q-bar"></i></div>
         <p class="lvl" id="q-lvl"></p>
         <p id="q-msg"></p>
-        <a class="btn btn-amber" href="#tempah"><span class="ms">Tempah pemeriksaan percuma</span><span class="en">Book a free inspection</span></a>
+        <a class="btn btn-amber" href="#tempah"><span class="ms">Tempah pemeriksaan percuma</span><span class="en">Book a free inspection</span><span class="zh">预约免费检查</span></a>
       </aside>
     </div>
   </div>
@@ -553,12 +559,12 @@ details p{font-size:17px}
   <div class="wrap">
     <div class="cols">
       <div>
-        <p class="eyebrow"><span class="ms">Kenapa bocor lagi?</span><span class="en">Why does it keep leaking?</span></p>
-        <h2><span class="ms">Menitis di sini.<br><span class="hl">Puncanya di sana.</span></span><span class="en">It drips here.<br><span class="hl">The cause is there.</span></span></h2>
+        <p class="eyebrow"><span class="ms">Kenapa bocor lagi?</span><span class="en">Why does it keep leaking?</span><span class="zh">为什么一直漏？</span></p>
+        <h2><span class="ms">Menitis di sini.<br><span class="hl">Puncanya di sana.</span></span><span class="en">It drips here.<br><span class="hl">The cause is there.</span></span><span class="zh">水滴在这里，<br><span class="hl">源头在那里。</span></span></h2>
         <div class="fails">
-          <div class="fail"><b>✕</b><div><h3><span class="ms">Tampal tempat titisan</span><span class="en">Patch the drip spot</span></h3><p class="no"><span class="ms">Punca tak dijumpai.</span><span class="en">The source is missed.</span></p></div></div>
-          <div class="fail"><b>✕</b><div><h3><span class="ms">Sealant murah</span><span class="en">Cheap sealant</span></h3><p class="no"><span class="ms">Retak dalam beberapa bulan.</span><span class="en">Cracks within months.</span></p></div></div>
-          <div class="fail"><b>✕</b><div><h3><span class="ms">Tiada pemeriksaan</span><span class="en">No inspection</span></h3><p class="no"><span class="ms">Tukang cuma meneka.</span><span class="en">The contractor just guesses.</span></p></div></div>
+          <div class="fail"><b>✕</b><div><h3><span class="ms">Tampal tempat titisan</span><span class="en">Patch the drip spot</span><span class="zh">只补滴水的地方</span></h3><p class="no"><span class="ms">Punca tak dijumpai.</span><span class="en">The source is missed.</span><span class="zh">找不到源头。</span></p></div></div>
+          <div class="fail"><b>✕</b><div><h3><span class="ms">Sealant murah</span><span class="en">Cheap sealant</span><span class="zh">便宜硅胶</span></h3><p class="no"><span class="ms">Retak dalam beberapa bulan.</span><span class="en">Cracks within months.</span><span class="zh">几个月就裂开。</span></p></div></div>
+          <div class="fail"><b>✕</b><div><h3><span class="ms">Tiada pemeriksaan</span><span class="en">No inspection</span><span class="zh">没有检查</span></h3><p class="no"><span class="ms">Tukang cuma meneka.</span><span class="en">The contractor just guesses.</span><span class="zh">师傅只是在猜。</span></p></div></div>
         </div>
       </div>
       <div style="min-width:0">
@@ -596,25 +602,25 @@ details p{font-size:17px}
           <polygon id="exMembrane" points="366,115 436,156 436,166 366,125" fill="#f2a516" opacity="0"/>
           <circle id="exRing" cx="400" cy="140" r="16" fill="none" stroke="#e5533c" stroke-width="4" opacity="0"/>
           <g id="exCheck" opacity="0"><circle cx="452" cy="118" r="16" fill="#2c9a5b"/><path d="M444,118 l6,6 10,-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
-          <text id="exLblCause" x="430" y="128" font-family="Archivo,sans-serif" font-size="18" font-weight="900" fill="#ff7a62" opacity="0"><tspan class="svg-ms">PUNCA</tspan><tspan class="svg-en">SOURCE</tspan></text>
+          <text id="exLblCause" x="430" y="128" font-family="Archivo,sans-serif" font-size="18" font-weight="900" fill="#ff7a62" opacity="0"><tspan class="svg-ms">PUNCA</tspan><tspan class="svg-en">SOURCE</tspan><tspan class="svg-zh">源头</tspan></text>
           <!-- water route -->
           <path id="exPath" d="M400,156 C404,160 412,164 418,170 L326,232 L200,233" fill="none" stroke="#5fb0ff" stroke-width="3" stroke-dasharray="3 7" stroke-linecap="round" opacity="0"/>
           <circle id="exDrop" r="6" fill="#5fb0ff" opacity="0"/>
           <ellipse id="exDrip" cx="200" cy="252" rx="4.5" ry="6.5" fill="#5fb0ff" opacity="0"/>
-          <text id="exLblDrip" x="226" y="290" font-family="Archivo,sans-serif" font-size="18" font-weight="900" fill="#16222c" opacity="0"><tspan class="svg-ms">TITISAN</tspan><tspan class="svg-en">DRIP</tspan></text>
+          <text id="exLblDrip" x="226" y="290" font-family="Archivo,sans-serif" font-size="18" font-weight="900" fill="#16222c" opacity="0"><tspan class="svg-ms">TITISAN</tspan><tspan class="svg-en">DRIP</tspan><tspan class="svg-zh">滴水处</tspan></text>
           <g id="exX" opacity="0"><circle cx="200" cy="300" r="20" fill="#c2412d"/><path d="M191,291 l18,18 M209,291 l-18,18" stroke="#fff" stroke-width="5" stroke-linecap="round"/></g>
           <!-- bucket -->
           <g id="exBucket" opacity="0"><path d="M176,352 L183,382 L217,382 L224,352 Z" fill="#3f6f97"/><ellipse cx="200" cy="352" rx="24" ry="5" fill="#7fb0d4"/></g>
         </svg>
         <div class="ex-cap" aria-live="polite"><span class="ex-step" id="exStep">1/6</span><p id="exText"></p></div>
-        <button type="button" class="ex-big" id="exBig"><span class="pl" aria-hidden="true"></span><span class="ms">Tonton: kenapa bumbung bocor (25 saat)</span><span class="en">Watch: why roofs leak (25 sec)</span></button>
+        <button type="button" class="ex-big" id="exBig"><span class="pl" aria-hidden="true"></span><span class="ms">Tonton: kenapa bumbung bocor (25 saat)</span><span class="en">Watch: why roofs leak (25 sec)</span><span class="zh">观看：屋顶为什么会漏（25 秒）</span></button>
         <div class="ex-bar">
           <button type="button" id="exToggle" aria-label="Main / Play">▶</button>
           <div class="ex-prog"><i id="exFill"></i></div>
           <div class="ex-dots" id="exDots"></div>
         </div>
       </figure>
-      <a class="ex-more" href="https://www.facebook.com/reel/1615521840218132/" target="_blank" rel="noopener"><span class="ms">▶ Kes sebenar: kedai 3 tingkat, bocor walaupun dah tampal sealant</span><span class="en">▶ Real case: 3-storey shop still leaking after sealant</span></a>
+      <a class="ex-more" href="https://www.facebook.com/reel/1615521840218132/" target="_blank" rel="noopener"><span class="ms">▶ Kes sebenar: kedai 3 tingkat, bocor walaupun dah tampal sealant</span><span class="en">▶ Real case: 3-storey shop still leaking after sealant</span><span class="zh">▶ 真实案例：三层店屋涂了硅胶还在漏</span></a>
       </div>
     </div>
   </div>
@@ -625,10 +631,10 @@ details p{font-size:17px}
   <div class="wrap cols">
     <img src="img/hero-team.jpg" alt="Pasukan INOKALIS bekerja di atas bumbung dengan abah-abah keselamatan" loading="lazy">
     <div>
-      <p class="eyebrow"><span class="ms">Kenapa INOKALIS wujud</span><span class="en">Why INOKALIS exists</span></p>
-      <h2><span class="ms">Kami wujud untuk<br><span class="hl">hentikan kitaran ini.</span></span><span class="en">We exist to<br><span class="hl">end this cycle.</span></span></h2>
-      <blockquote><span class="ms">"Hujan sepatutnya bawa tenang, bukan takut."</span><span class="en">"Rain should bring calm, not fear."</span></blockquote>
-      <p class="body"><span class="ms">20+ tahun di lapangan, kami lihat corak yang sama: tampal, bayar, bocor lagi. Cara kami berbeza: <b>cari punca, tunjuk bukti, baiki sekali.</b></span><span class="en">20+ years in the field, we kept seeing the same pattern: patch, pay, leak again. We work differently: <b>find the cause, show the proof, fix it once.</b></span></p>
+      <p class="eyebrow"><span class="ms">Kenapa INOKALIS wujud</span><span class="en">Why INOKALIS exists</span><span class="zh">为什么有 INOKALIS</span></p>
+      <h2><span class="ms">Kami wujud untuk<br><span class="hl">hentikan kitaran ini.</span></span><span class="en">We exist to<br><span class="hl">end this cycle.</span></span><span class="zh">我们的存在，<br><span class="hl">就是终结这个循环。</span></span></h2>
+      <blockquote><span class="ms">"Hujan sepatutnya bawa tenang, bukan takut."</span><span class="en">"Rain should bring calm, not fear."</span><span class="zh">"下雨应该带来平静，而不是恐惧。"</span></blockquote>
+      <p class="body"><span class="ms">20+ tahun di lapangan, kami lihat corak yang sama: tampal, bayar, bocor lagi. Cara kami berbeza: <b>cari punca, tunjuk bukti, baiki sekali.</b></span><span class="en">20+ years in the field, we kept seeing the same pattern: patch, pay, leak again. We work differently: <b>find the cause, show the proof, fix it once.</b></span><span class="zh">在工地 20 多年，我们一直看到同样的情况：补一补、付钱、又再漏。我们的做法不同：<b>找出源头、给您看证据、一次修好。</b></span></p>
       <p class="sig">Pasukan INOKALIS · Ipoh, Perak</p>
     </div>
   </div>
@@ -637,40 +643,40 @@ details p{font-size:17px}
 <!-- 5b. VIDEO PROOF -->
 <section class="vids" id="video">
   <div class="wrap">
-    <p class="eyebrow"><span class="ms">Tonton sendiri</span><span class="en">Watch for yourself</span></p>
-    <h2><span class="ms"><span class="hl">2.6 juta</span> tontonan.</span><span class="en"><span class="hl">2.6 million</span> views.</span></h2>
-    <p class="lead"><span class="ms">Kerja sebenar. Rumah pelanggan sebenar. Tonton di Facebook, YouTube &amp; TikTok.</span><span class="en">Real work. Real customers' homes. Watch on Facebook, YouTube &amp; TikTok.</span></p>
+    <p class="eyebrow"><span class="ms">Tonton sendiri</span><span class="en">Watch for yourself</span><span class="zh">亲眼看看</span></p>
+    <h2><span class="ms"><span class="hl">2.6 juta</span> tontonan.</span><span class="en"><span class="hl">2.6 million</span> views.</span><span class="zh"><span class="hl">260 万</span>次观看。</span></h2>
+    <p class="lead"><span class="ms">Kerja sebenar. Rumah pelanggan sebenar. Tonton di Facebook, YouTube &amp; TikTok.</span><span class="en">Real work. Real customers' homes. Watch on Facebook, YouTube &amp; TikTok.</span><span class="zh">真实施工，真实顾客的家。在 Facebook、YouTube 和 TikTok 观看。</span></p>
     <div class="feat">
-      <a class="vcard" href="https://www.facebook.com/reel/545211821346250/" target="_blank" rel="noopener"><img src="img/v-545211821346250.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views"><span class="ms">2 juta tontonan</span><span class="en">2M views</span></span><span class="vt"><span class="ms">5 kali baiki, masih bocor?</span><span class="en">Fixed 5 times, still leaking?</span></span></span></a>
-      <a class="vcard" href="https://www.facebook.com/reel/1350791423012841/" target="_blank" rel="noopener"><img src="img/v-1350791423012841.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views"><span class="ms">663 ribu tontonan</span><span class="en">663K views</span></span><span class="vt"><span class="ms">Jangan kena scam!</span><span class="en">Don't get scammed!</span></span></span></a>
-      <a class="vcard" href="https://www.facebook.com/reel/640096755502592/" target="_blank" rel="noopener"><img src="img/v-640096755502592.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views"><span class="ms">5.2 ribu tontonan</span><span class="en">5.2K views</span></span><span class="vt"><span class="ms">Dulu stres, sekarang senyum.</span><span class="en">Stressed then, smiling now.</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/545211821346250/" target="_blank" rel="noopener"><img src="img/v-545211821346250.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views"><span class="ms">2 juta tontonan</span><span class="en">2M views</span><span class="zh">200 万次观看</span></span><span class="vt"><span class="ms">5 kali baiki, masih bocor?</span><span class="en">Fixed 5 times, still leaking?</span><span class="zh">修了 5 次，还在漏？</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/1350791423012841/" target="_blank" rel="noopener"><img src="img/v-1350791423012841.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views"><span class="ms">663 ribu tontonan</span><span class="en">663K views</span><span class="zh">66.3 万次观看</span></span><span class="vt"><span class="ms">Jangan kena scam!</span><span class="en">Don't get scammed!</span><span class="zh">别被骗了！</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/640096755502592/" target="_blank" rel="noopener"><img src="img/v-640096755502592.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views"><span class="ms">5.2 ribu tontonan</span><span class="en">5.2K views</span><span class="zh">5,200 次观看</span></span><span class="vt"><span class="ms">Dulu stres, sekarang senyum.</span><span class="en">Stressed then, smiling now.</span><span class="zh">以前烦恼，现在开心。</span></span></span></a>
     </div>
-    <p class="sub2"><span class="ms">Video projek terkini</span><span class="en">Latest project videos</span></p>
+    <p class="sub2"><span class="ms">Video projek terkini</span><span class="en">Latest project videos</span><span class="zh">最新工程视频</span></p>
     <div class="vrow">
-      <a class="vcard" href="https://www.facebook.com/reel/1395505682083772/" target="_blank" rel="noopener"><img src="img/v-1395505682083772.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">959 <span class="ms">tontonan</span><span class="en">views</span></span><span class="vt"><span class="ms">Tukar genting rumah teres</span><span class="en">Terrace house re-tiling</span></span></span></a>
-      <a class="vcard" href="https://www.facebook.com/reel/1594767149010198/" target="_blank" rel="noopener"><img src="img/v-1594767149010198.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">938 <span class="ms">tontonan</span><span class="en">views</span></span><span class="vt"><span class="ms">Slab konkrit bocor</span><span class="en">Leaking concrete slab</span></span></span></a>
-      <a class="vcard" href="https://www.facebook.com/reel/2817206568650660/" target="_blank" rel="noopener"><img src="img/v-2817206568650660.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">795 <span class="ms">tontonan</span><span class="en">views</span></span><span class="vt"><span class="ms">Daun sumbat saliran</span><span class="en">Leaves block the gutter</span></span></span></a>
-      <a class="vcard" href="https://www.facebook.com/reel/1840865570672564/" target="_blank" rel="noopener"><img src="img/v-1840865570672564.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">754 <span class="ms">tontonan</span><span class="en">views</span></span><span class="vt"><span class="ms">Asbestos ke metal deck</span><span class="en">Asbestos to metal deck</span></span></span></a>
-      <a class="vcard" href="https://www.facebook.com/reel/39174899152124947/" target="_blank" rel="noopener"><img src="img/v-39174899152124947.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">670 <span class="ms">tontonan</span><span class="en">views</span></span><span class="vt"><span class="ms">Double decking, Kulim</span><span class="en">Double decking, Kulim</span></span></span></a>
-      <a class="vcard" href="https://www.facebook.com/reel/1615521840218132/" target="_blank" rel="noopener"><img src="img/v-1615521840218132.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">305 <span class="ms">tontonan</span><span class="en">views</span></span><span class="vt"><span class="ms">Kedai 3 tingkat bocor</span><span class="en">3-storey shop leak</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/1395505682083772/" target="_blank" rel="noopener"><img src="img/v-1395505682083772.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">959 <span class="ms">tontonan</span><span class="en">views</span><span class="zh">次观看</span></span><span class="vt"><span class="ms">Tukar genting rumah teres</span><span class="en">Terrace house re-tiling</span><span class="zh">排屋换瓦</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/1594767149010198/" target="_blank" rel="noopener"><img src="img/v-1594767149010198.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">938 <span class="ms">tontonan</span><span class="en">views</span><span class="zh">次观看</span></span><span class="vt"><span class="ms">Slab konkrit bocor</span><span class="en">Leaking concrete slab</span><span class="zh">混凝土平顶漏水</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/2817206568650660/" target="_blank" rel="noopener"><img src="img/v-2817206568650660.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">795 <span class="ms">tontonan</span><span class="en">views</span><span class="zh">次观看</span></span><span class="vt"><span class="ms">Daun sumbat saliran</span><span class="en">Leaves block the gutter</span><span class="zh">落叶堵塞排水槽</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/1840865570672564/" target="_blank" rel="noopener"><img src="img/v-1840865570672564.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">754 <span class="ms">tontonan</span><span class="en">views</span><span class="zh">次观看</span></span><span class="vt"><span class="ms">Asbestos ke metal deck</span><span class="en">Asbestos to metal deck</span><span class="zh">石棉屋顶换金属屋顶</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/39174899152124947/" target="_blank" rel="noopener"><img src="img/v-39174899152124947.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">670 <span class="ms">tontonan</span><span class="en">views</span><span class="zh">次观看</span></span><span class="vt"><span class="ms">Double decking, Kulim</span><span class="en">Double decking, Kulim</span><span class="zh">双层屋顶，居林</span></span></span></a>
+      <a class="vcard" href="https://www.facebook.com/reel/1615521840218132/" target="_blank" rel="noopener"><img src="img/v-1615521840218132.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="meta"><span class="views">305 <span class="ms">tontonan</span><span class="en">views</span><span class="zh">次观看</span></span><span class="vt"><span class="ms">Kedai 3 tingkat bocor</span><span class="en">3-storey shop leak</span><span class="zh">三层店屋漏水</span></span></span></a>
     </div>
     <div class="follow">
       <div class="follow-tx">
-        <h3><span class="ms">Like &amp; follow <span class="hl">INOKALIS</span></span><span class="en">Like &amp; follow <span class="hl">INOKALIS</span></span></h3>
-        <p><span class="ms">Dapatkan video projek, tips bumbung &amp; kes bocor terbaru terus di telefon anda.</span><span class="en">Get our latest project videos, roof tips &amp; leak cases straight on your phone.</span></p>
+        <h3><span class="ms">Like &amp; follow <span class="hl">INOKALIS</span></span><span class="en">Like &amp; follow <span class="hl">INOKALIS</span></span><span class="zh">Like &amp; 关注 <span class="hl">INOKALIS</span></span></h3>
+        <p><span class="ms">Dapatkan video projek, tips bumbung &amp; kes bocor terbaru terus di telefon anda.</span><span class="en">Get our latest project videos, roof tips &amp; leak cases straight on your phone.</span><span class="zh">在手机上第一时间看到我们的最新工程视频、屋顶小知识和漏水案例。</span></p>
       </div>
       <div class="socials">
         <a class="soc fb" href="https://www.facebook.com/inokalissb" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V14h2.7v8h3.1Z"/></svg>
-          <span><b>Facebook</b><small><span class="ms">Like page kami</span><span class="en">Like our page</span></small></span>
+          <span><b>Facebook</b><small><span class="ms">Like page kami</span><span class="en">Like our page</span><span class="zh">给我们的专页点赞</span></small></span>
         </a>
         <a class="soc yt" href="https://www.youtube.com/@Inokalis" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.8 3.1-5.8 3.1Z"/></svg>
-          <span><b>YouTube</b><small><span class="ms">Subscribe</span><span class="en">Subscribe</span></small></span>
+          <span><b>YouTube</b><small><span class="ms">Subscribe</span><span class="en">Subscribe</span><span class="zh">订阅</span></small></span>
         </a>
         <a class="soc tt" href="https://www.tiktok.com/@inokalis" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.2a6.2 6.2 0 1 0 5.3 6.2V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.4Z"/></svg>
-          <span><b>TikTok</b><small><span class="ms">Follow kami</span><span class="en">Follow us</span></small></span>
+          <span><b>TikTok</b><small><span class="ms">Follow kami</span><span class="en">Follow us</span><span class="zh">关注我们</span></small></span>
         </a>
       </div>
     </div>
@@ -682,20 +688,20 @@ details p{font-size:17px}
   <div class="wrap">
     <div class="head">
       <div>
-        <p class="eyebrow"><span class="ms">Cara INOKALIS</span><span class="en">The INOKALIS way</span></p>
-        <h2><span class="ms">Cari punca.<br>Baiki sekali.<br><span class="hl">Tidur lena.</span></span><span class="en">Find the cause.<br>Fix it once.<br><span class="hl">Sleep easy.</span></span></h2>
+        <p class="eyebrow"><span class="ms">Cara INOKALIS</span><span class="en">The INOKALIS way</span><span class="zh">INOKALIS 的做法</span></p>
+        <h2><span class="ms">Cari punca.<br>Baiki sekali.<br><span class="hl">Tidur lena.</span></span><span class="en">Find the cause.<br>Fix it once.<br><span class="hl">Sleep easy.</span></span><span class="zh">找出源头。<br>一次修好。<br><span class="hl">安心入睡。</span></span></h2>
       </div>
       <div class="stats">
-        <div class="stat"><b>20+</b><span><span class="ms">tahun pengalaman</span><span class="en">years' experience</span></span></div>
-        <div class="stat"><b>10</b><span><span class="ms">tahun waranti (maks.)</span><span class="en">yr warranty (max)</span></span></div>
-        <div class="stat"><b>RM0</b><span><span class="ms">pemeriksaan</span><span class="en">inspection</span></span></div>
+        <div class="stat"><b>20+</b><span><span class="ms">tahun pengalaman</span><span class="en">years' experience</span><span class="zh">年经验</span></span></div>
+        <div class="stat"><b>10</b><span><span class="ms">tahun waranti (maks.)</span><span class="en">yr warranty (max)</span><span class="zh">年保修（最长）</span></span></div>
+        <div class="stat"><b>RM0</b><span><span class="ms">pemeriksaan</span><span class="en">inspection</span><span class="zh">检查费</span></span></div>
       </div>
     </div>
     <div class="pillars">
-      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 7l4-3M21 7l-4-3M3 17l4 3M21 17l-4 3"/></svg></div><h3><span class="ms">Pemeriksaan dron</span><span class="en">Drone inspection</span></h3><p><span class="ms">Gambar sebenar punca bocor.</span><span class="en">Real photos of the leak source.</span></p></div>
-      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M9 10h6M9 14h6M9 18h3"/></svg></div><h3><span class="ms">Harga telus</span><span class="en">Clear pricing</span></h3><p><span class="ms">Bertulis. Tiada kos tersembunyi.</span><span class="en">In writing. No hidden costs.</span></p></div>
-      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 10h8"/></svg></div><h3><span class="ms">Update WhatsApp</span><span class="en">WhatsApp updates</span></h3><p><span class="ms">Foto &amp; video progres setiap hari.</span><span class="en">Daily progress photos &amp; videos.</span></p></div>
-      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3><span class="ms">Waranti bertulis</span><span class="en">Written warranty</span></h3><p><span class="ms">Hingga 10 tahun + khidmat selepas jualan.</span><span class="en">Up to 10 years + after-sales service.</span></p></div>
+      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 7l4-3M21 7l-4-3M3 17l4 3M21 17l-4 3"/></svg></div><h3><span class="ms">Pemeriksaan dron</span><span class="en">Drone inspection</span><span class="zh">无人机检查</span></h3><p><span class="ms">Gambar sebenar punca bocor.</span><span class="en">Real photos of the leak source.</span><span class="zh">拍下漏水源头的真实照片。</span></p></div>
+      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M9 10h6M9 14h6M9 18h3"/></svg></div><h3><span class="ms">Harga telus</span><span class="en">Clear pricing</span><span class="zh">价格透明</span></h3><p><span class="ms">Bertulis. Tiada kos tersembunyi.</span><span class="en">In writing. No hidden costs.</span><span class="zh">书面报价，没有隐藏费用。</span></p></div>
+      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 10h8"/></svg></div><h3><span class="ms">Update WhatsApp</span><span class="en">WhatsApp updates</span><span class="zh">WhatsApp 更新</span></h3><p><span class="ms">Foto &amp; video progres setiap hari.</span><span class="en">Daily progress photos &amp; videos.</span><span class="zh">每天发送进度照片和视频。</span></p></div>
+      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3><span class="ms">Waranti bertulis</span><span class="en">Written warranty</span><span class="zh">书面保修</span></h3><p><span class="ms">Hingga 10 tahun + khidmat selepas jualan.</span><span class="en">Up to 10 years + after-sales service.</span><span class="zh">长达 10 年 + 售后服务。</span></p></div>
     </div>
   </div>
 </section>
@@ -703,39 +709,39 @@ details p{font-size:17px}
 <!-- 6b. PROJECTS -->
 <section class="proj" id="projek">
   <div class="wrap">
-    <p class="eyebrow"><span class="ms">Projek siap</span><span class="en">Completed projects</span></p>
-    <h2><span class="ms">Rumah. Kedai. Hotel.<br><span class="hl">Kilang. Kuil.</span></span><span class="en">Homes. Shops. Hotel.<br><span class="hl">Factory. Temple.</span></span></h2>
+    <p class="eyebrow"><span class="ms">Projek siap</span><span class="en">Completed projects</span><span class="zh">已完成工程</span></p>
+    <h2><span class="ms">Rumah. Kedai. Hotel.<br><span class="hl">Kilang. Kuil.</span></span><span class="en">Homes. Shops. Hotel.<br><span class="hl">Factory. Temple.</span></span><span class="zh">住家、店屋、酒店，<br><span class="hl">工厂、庙宇。</span></span></h2>
     <div class="places" aria-label="Lokasi projek / Project locations">
       <span>Ipoh</span><span>Taman Canning</span><span>Chemor</span><span>Tapah</span><span>Bidor</span><span>Taiping</span><span>Ulu Kinta</span><span>Kulim</span>
     </div>
 
-    <h3 style="margin-top:44px"><span class="ms">Sebelum vs selepas</span><span class="en">Before vs after</span></h3>
-    <p class="hint" style="color:var(--muted);margin-top:6px"><span class="ms">Seret garis tengah.</span><span class="en">Drag the middle line.</span></p>
+    <h3 style="margin-top:44px"><span class="ms">Sebelum vs selepas</span><span class="en">Before vs after</span><span class="zh">施工前 vs 施工后</span></h3>
+    <p class="hint" style="color:var(--muted);margin-top:6px"><span class="ms">Seret garis tengah.</span><span class="en">Drag the middle line.</span><span class="zh">拖动中间的线。</span></p>
     <div class="ba-wrap">
-      <figure style="margin:0"><div class="ba"><img src="img/p5-ainon-b.jpg" alt="Sebelum / Before" loading="lazy"><img class="after" src="img/p5-ainon-a.jpg" alt="Selepas / After" loading="lazy"><span class="lb b"><span class="ms">Sebelum</span><span class="en">Before</span></span><span class="lb a"><span class="ms">Selepas</span><span class="en">After</span></span><span class="handle"></span><input type="range" id="ba1" min="0" max="100" value="50" aria-label="Before / after"></div><figcaption class="ba-cap">PU Foil Metal Roof · Perak</figcaption></figure>
-      <figure style="margin:0"><div class="ba"><img src="img/p5-rosli-b.jpg" alt="Sebelum / Before" loading="lazy"><img class="after" src="img/p5-rosli-a.jpg" alt="Selepas / After" loading="lazy"><span class="lb b"><span class="ms">Sebelum</span><span class="en">Before</span></span><span class="lb a"><span class="ms">Selepas</span><span class="en">After</span></span><span class="handle"></span><input type="range" id="ba2" min="0" max="100" value="50" aria-label="Before / after"></div><figcaption class="ba-cap">PU Foil Metal Roof · Perak</figcaption></figure>
-      <figure style="margin:0"><div class="ba"><img src="img/p5-diva-b.jpg" alt="Sebelum / Before" loading="lazy"><img class="after" src="img/p5-diva-a.jpg" alt="Selepas / After" loading="lazy"><span class="lb b"><span class="ms">Sebelum</span><span class="en">Before</span></span><span class="lb a"><span class="ms">Selepas</span><span class="en">After</span></span><span class="handle"></span><input type="range" id="ba3" min="0" max="100" value="50" aria-label="Before / after"></div><figcaption class="ba-cap">PU Foil Metal Roof · Perak</figcaption></figure>
+      <figure style="margin:0"><div class="ba"><img src="img/p5-ainon-b.jpg" alt="Sebelum / Before" loading="lazy"><img class="after" src="img/p5-ainon-a.jpg" alt="Selepas / After" loading="lazy"><span class="lb b"><span class="ms">Sebelum</span><span class="en">Before</span><span class="zh">施工前</span></span><span class="lb a"><span class="ms">Selepas</span><span class="en">After</span><span class="zh">施工后</span></span><span class="handle"></span><input type="range" id="ba1" min="0" max="100" value="50" aria-label="Before / after"></div><figcaption class="ba-cap">PU Foil Metal Roof · Perak</figcaption></figure>
+      <figure style="margin:0"><div class="ba"><img src="img/p5-rosli-b.jpg" alt="Sebelum / Before" loading="lazy"><img class="after" src="img/p5-rosli-a.jpg" alt="Selepas / After" loading="lazy"><span class="lb b"><span class="ms">Sebelum</span><span class="en">Before</span><span class="zh">施工前</span></span><span class="lb a"><span class="ms">Selepas</span><span class="en">After</span><span class="zh">施工后</span></span><span class="handle"></span><input type="range" id="ba2" min="0" max="100" value="50" aria-label="Before / after"></div><figcaption class="ba-cap">PU Foil Metal Roof · Perak</figcaption></figure>
+      <figure style="margin:0"><div class="ba"><img src="img/p5-diva-b.jpg" alt="Sebelum / Before" loading="lazy"><img class="after" src="img/p5-diva-a.jpg" alt="Selepas / After" loading="lazy"><span class="lb b"><span class="ms">Sebelum</span><span class="en">Before</span><span class="zh">施工前</span></span><span class="lb a"><span class="ms">Selepas</span><span class="en">After</span><span class="zh">施工后</span></span><span class="handle"></span><input type="range" id="ba3" min="0" max="100" value="50" aria-label="Before / after"></div><figcaption class="ba-cap">PU Foil Metal Roof · Perak</figcaption></figure>
     </div>
 
     <div class="plist">
       <article class="pj">
         <div class="ph"><img src="img/p4-1.jpg" alt="" loading="lazy"><img src="img/p4-3.jpg" alt="" loading="lazy"><img src="img/p4-4.jpg" alt="" loading="lazy"><img src="img/p4-6.jpg" alt="" loading="lazy"></div>
         <div class="tx">
-          <p class="loc">Taman Canning, Ipoh · <span class="ms">Kediaman</span><span class="en">Residential</span></p>
-          <h3><span class="ms">Tukar bumbung penuh, 2 rumah</span><span class="en">Full re-roof, 2 homes</span></h3>
-          <p><span class="ms">Genting Monier baharu, penebat foil, dan membran di semua titik mudah bocor.</span><span class="en">New Monier tiles, foil insulation, and membrane at every leak-prone point.</span></p>
+          <p class="loc">Taman Canning, Ipoh · <span class="ms">Kediaman</span><span class="en">Residential</span><span class="zh">住宅</span></p>
+          <h3><span class="ms">Tukar bumbung penuh, 2 rumah</span><span class="en">Full re-roof, 2 homes</span><span class="zh">整个屋顶翻新，2 间住家</span></h3>
+          <p><span class="ms">Genting Monier baharu, penebat foil, dan membran di semua titik mudah bocor.</span><span class="en">New Monier tiles, foil insulation, and membrane at every leak-prone point.</span><span class="zh">新的 Monier 瓦片、铝箔隔热层，每个容易漏的地方都铺防水膜。</span></p>
           <div class="tags"><b>Monier Elabana</b><b>Sunfoil SB200-FR</b><b>APP Torch-On</b></div>
-          <div class="facts"><span><span class="ms">Waranti hingga 10 tahun</span><span class="en">Up to 10-yr warranty</span></span></div>
+          <div class="facts"><span><span class="ms">Waranti hingga 10 tahun</span><span class="en">Up to 10-yr warranty</span><span class="zh">保修长达 10 年</span></span></div>
         </div>
       </article>
       <article class="pj">
         <div class="ph"><img src="img/p1-1.jpg" alt="" loading="lazy"><img src="img/p1-3.jpg" alt="" loading="lazy"><img src="img/p1-4.jpg" alt="" loading="lazy"><img src="img/p1-6.jpg" alt="" loading="lazy"></div>
         <div class="tx">
-          <p class="loc">Chemor, Perak · <span class="ms">Kilang</span><span class="en">Factory</span></p>
+          <p class="loc">Chemor, Perak · <span class="ms">Kilang</span><span class="en">Factory</span><span class="zh">工厂</span></p>
           <h3>Kamaya Electric</h3>
-          <p><span class="ms">Slab bumbung kilang bocor. Sistem APP torch-on gred industri, kren 50 tan.</span><span class="en">Leaking factory roof slab. Industrial APP torch-on system, 50-ton crane.</span></p>
+          <p><span class="ms">Slab bumbung kilang bocor. Sistem APP torch-on gred industri, kren 50 tan.</span><span class="en">Leaking factory roof slab. Industrial APP torch-on system, 50-ton crane.</span><span class="zh">工厂屋顶平台漏水。工业级 APP 热熔防水系统，50 吨吊车。</span></p>
           <div class="tags"><b>APP Torch-On</b><b>DOSH</b></div>
-          <div class="facts"><span><span class="ms">Siap 10 hari</span><span class="en">Done in 10 days</span></span><span><span class="ms">Sifar kemalangan</span><span class="en">Zero incidents</span></span><span><span class="ms">Waranti 10 tahun</span><span class="en">10-yr warranty</span></span></div>
+          <div class="facts"><span><span class="ms">Siap 10 hari</span><span class="en">Done in 10 days</span><span class="zh">10 天完工</span></span><span><span class="ms">Sifar kemalangan</span><span class="en">Zero incidents</span><span class="zh">零意外</span></span><span><span class="ms">Waranti 10 tahun</span><span class="en">10-yr warranty</span><span class="zh">10 年保修</span></span></div>
         </div>
       </article>
       <article class="pj">
@@ -743,19 +749,19 @@ details p{font-size:17px}
         <div class="tx">
           <p class="loc">Tapah, Perak · Hotel</p>
           <h3>KU3 Hotel</h3>
-          <p><span class="ms">Slab rata bocor berulang. Membran torch-on penuh + ujian takungan air.</span><span class="en">Recurring flat-slab leak. Full torch-on membrane + water ponding test.</span></p>
+          <p><span class="ms">Slab rata bocor berulang. Membran torch-on penuh + ujian takungan air.</span><span class="en">Recurring flat-slab leak. Full torch-on membrane + water ponding test.</span><span class="zh">平顶反复漏水。整面热熔防水膜 + 蓄水测试。</span></p>
           <div class="tags"><b>APP Torch-On</b><b>Water Ponding Test</b></div>
-          <div class="facts"><span><span class="ms">Hotel terus beroperasi</span><span class="en">Hotel stayed open</span></span></div>
+          <div class="facts"><span><span class="ms">Hotel terus beroperasi</span><span class="en">Hotel stayed open</span><span class="zh">酒店照常营业</span></span></div>
         </div>
       </article>
       <article class="pj">
         <div class="ph"><img src="img/p3-1.jpg" alt="" loading="lazy"><img src="img/p3-3.jpg" alt="" loading="lazy"><img src="img/p3-4.jpg" alt="" loading="lazy"><img src="img/p3-6.jpg" alt="" loading="lazy"></div>
         <div class="tx">
-          <p class="loc">Bidor, Perak · <span class="ms">Rumah ibadat</span><span class="en">Place of worship</span></p>
+          <p class="loc">Bidor, Perak · <span class="ms">Rumah ibadat</span><span class="en">Place of worship</span><span class="zh">宗教场所</span></p>
           <h3>Kuil Shree Sitti Vinayagar</h3>
-          <p><span class="ms">Kalis air slab bumbung kuil. Kren 25 tan, tanpa ganggu aktiviti kuil.</span><span class="en">Temple roof slab waterproofed. 25-ton crane, no disruption to the temple.</span></p>
+          <p><span class="ms">Kalis air slab bumbung kuil. Kren 25 tan, tanpa ganggu aktiviti kuil.</span><span class="en">Temple roof slab waterproofed. 25-ton crane, no disruption to the temple.</span><span class="zh">庙宇屋顶平台防水。25 吨吊车，不影响庙宇活动。</span></p>
           <div class="tags"><b>APP Torch-On</b><b>Crane 25T</b></div>
-          <div class="facts"><span><span class="ms">Waranti 10 tahun</span><span class="en">10-yr warranty</span></span></div>
+          <div class="facts"><span><span class="ms">Waranti 10 tahun</span><span class="en">10-yr warranty</span><span class="zh">10 年保修</span></span></div>
         </div>
       </article>
     </div>
@@ -765,8 +771,8 @@ details p{font-size:17px}
 <!-- 7. PROOF -->
 <section class="proof">
   <div class="wrap">
-    <p class="eyebrow"><span class="ms">Kata pelanggan</span><span class="en">What customers say</span></p>
-    <h2><span class="ms">Bocor 7 tahun.<br><span class="hl">Siap 3 hari.</span></span><span class="en">Leaking 7 years.<br><span class="hl">Fixed in 3 days.</span></span></h2>
+    <p class="eyebrow"><span class="ms">Kata pelanggan</span><span class="en">What customers say</span><span class="zh">顾客怎么说</span></p>
+    <h2><span class="ms">Bocor 7 tahun.<br><span class="hl">Siap 3 hari.</span></span><span class="en">Leaking 7 years.<br><span class="hl">Fixed in 3 days.</span></span><span class="zh">漏了 7 年，<br><span class="hl">3 天修好。</span></span></h2>
     <div class="quotes">
       <figure class="quote big">
         <p>“I was having a leaking back extension for about <mark>7 years</mark>… There were clear drone images of my roof to show the cause of the leaks… It only took <mark>3 days</mark>… <mark>So far after a heavy downpour, there has been no leaks.</mark>”</p>
@@ -791,13 +797,13 @@ details p{font-size:17px}
 <!-- 8. PROCESS -->
 <section class="process">
   <div class="wrap">
-    <p class="eyebrow"><span class="ms">Mudah</span><span class="en">Simple</span></p>
-    <h2><span class="ms">4 langkah ke<br><span class="hl">bumbung kering.</span></span><span class="en">4 steps to a<br><span class="hl">dry roof.</span></span></h2>
+    <p class="eyebrow"><span class="ms">Mudah</span><span class="en">Simple</span><span class="zh">简单</span></p>
+    <h2><span class="ms">4 langkah ke<br><span class="hl">bumbung kering.</span></span><span class="en">4 steps to a<br><span class="hl">dry roof.</span></span><span class="zh">4 个步骤，<br><span class="hl">屋顶不再漏。</span></span></h2>
     <ol class="steps">
-      <li><h3><span class="ms">WhatsApp kami</span><span class="en">WhatsApp us</span></h3><p><span class="ms">Hantar gambar bocor.</span><span class="en">Send photos of the leak.</span></p></li>
-      <li><h3><span class="ms">Pemeriksaan percuma</span><span class="en">Free inspection</span></h3><p><span class="ms">Kami cari punca sebenar.</span><span class="en">We find the real cause.</span></p></li>
-      <li><h3><span class="ms">Sebut harga</span><span class="en">Get a quote</span></h3><p><span class="ms">Jelas dan bertulis.</span><span class="en">Clear and in writing.</span></p></li>
-      <li><h3><span class="ms">Siap!</span><span class="en">Done!</span></h3><p><span class="ms">Update setiap hari hingga selesai.</span><span class="en">Daily updates until it's finished.</span></p></li>
+      <li><h3><span class="ms">WhatsApp kami</span><span class="en">WhatsApp us</span><span class="zh">WhatsApp 我们</span></h3><p><span class="ms">Hantar gambar bocor.</span><span class="en">Send photos of the leak.</span><span class="zh">发送漏水照片。</span></p></li>
+      <li><h3><span class="ms">Pemeriksaan percuma</span><span class="en">Free inspection</span><span class="zh">免费检查</span></h3><p><span class="ms">Kami cari punca sebenar.</span><span class="en">We find the real cause.</span><span class="zh">我们找出真正源头。</span></p></li>
+      <li><h3><span class="ms">Sebut harga</span><span class="en">Get a quote</span><span class="zh">获取报价</span></h3><p><span class="ms">Jelas dan bertulis.</span><span class="en">Clear and in writing.</span><span class="zh">清楚的书面报价。</span></p></li>
+      <li><h3><span class="ms">Siap!</span><span class="en">Done!</span><span class="zh">完工！</span></h3><p><span class="ms">Update setiap hari hingga selesai.</span><span class="en">Daily updates until it's finished.</span><span class="zh">每天更新，直到完工。</span></p></li>
     </ol>
   </div>
 </section>
@@ -806,45 +812,45 @@ details p{font-size:17px}
 <section class="offer" id="tempah">
   <div class="wrap cols">
     <div>
-      <p class="eyebrow"><span class="ms">Tawaran anda</span><span class="en">Your offer</span></p>
-      <h2><span class="ms">Pemeriksaan<br><span class="hl">percuma.</span></span><span class="en">Inspection<br><span class="hl">is free.</span></span></h2>
-      <p class="lead" style="margin-top:16px"><span class="ms">Tahu punca sebenar sebelum keluar satu sen.</span><span class="en">Know the real cause before you spend a cent.</span></p>
+      <p class="eyebrow"><span class="ms">Tawaran anda</span><span class="en">Your offer</span><span class="zh">给您的优惠</span></p>
+      <h2><span class="ms">Pemeriksaan<br><span class="hl">percuma.</span></span><span class="en">Inspection<br><span class="hl">is free.</span></span><span class="zh">检查<br><span class="hl">免费。</span></span></h2>
+      <p class="lead" style="margin-top:16px"><span class="ms">Tahu punca sebenar sebelum keluar satu sen.</span><span class="en">Know the real cause before you spend a cent.</span><span class="zh">花钱之前，先知道真正的漏水原因。</span></p>
       <ul class="includes">
-        <li><span class="ms">Pakar datang ke tapak</span><span class="en">Specialist visits your site</span></li>
-        <li><span class="ms">Gambar punca bocor (dron jika sesuai)</span><span class="en">Photos of the leak source (drone if suitable)</span></li>
-        <li><span class="ms">Sebut harga bertulis</span><span class="en">Written quotation</span></li>
-        <li><span class="ms">Rumah, kondo, kedai, kilang</span><span class="en">Homes, condos, shops, factories</span></li>
+        <li><span class="ms">Pakar datang ke tapak</span><span class="en">Specialist visits your site</span><span class="zh">专人到现场检查</span></li>
+        <li><span class="ms">Gambar punca bocor (dron jika sesuai)</span><span class="en">Photos of the leak source (drone if suitable)</span><span class="zh">漏水源头照片（适用时用无人机）</span></li>
+        <li><span class="ms">Sebut harga bertulis</span><span class="en">Written quotation</span><span class="zh">书面报价</span></li>
+        <li><span class="ms">Rumah, kondo, kedai, kilang</span><span class="en">Homes, condos, shops, factories</span><span class="zh">住家、公寓、店屋、工厂</span></li>
       </ul>
-      <p class="urgent"><span class="ms">Slot cepat penuh sebelum tengkujuh. Tempah sekarang.</span><span class="en">Slots fill fast before the monsoon. Book now.</span></p>
+      <p class="urgent"><span class="ms">Slot cepat penuh sebelum tengkujuh. Tempah sekarang.</span><span class="en">Slots fill fast before the monsoon. Book now.</span><span class="zh">季候风前名额很快满。现在就预约。</span></p>
     </div>
 
     <form class="form" id="lead" novalidate>
       <div class="prog" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
 
       <fieldset class="step" data-step="1" style="border:0;padding:0;margin:0">
-        <legend><h3><span class="ms">Apa masalah utama?</span><span class="en">What's the main problem?</span></h3></legend>
-        <p class="hint"><span class="ms">Langkah 1 / 3</span><span class="en">Step 1 / 3</span></p>
+        <legend><h3><span class="ms">Apa masalah utama?</span><span class="en">What's the main problem?</span><span class="zh">主要是什么问题？</span></h3></legend>
+        <p class="hint"><span class="ms">Langkah 1 / 3</span><span class="en">Step 1 / 3</span><span class="zh">第 1 / 3 步</span></p>
         <div class="opts">
-          <div class="opt"><input type="radio" name="problem" id="p1" value="roof"><label for="p1"><span class="ms">Bumbung bocor</span><span class="en">Leaking roof</span></label></div>
-          <div class="opt"><input type="radio" name="problem" id="p2" value="ceiling"><label for="p2"><span class="ms">Siling rosak / mengendur</span><span class="en">Damaged / sagging ceiling</span></label></div>
-          <div class="opt"><input type="radio" name="problem" id="p3" value="slab"><label for="p3"><span class="ms">Slab konkrit / bumbung rata</span><span class="en">Concrete slab / flat roof</span></label></div>
-          <div class="opt"><input type="radio" name="problem" id="p4" value="other"><label for="p4"><span class="ms">Lain-lain / tak pasti</span><span class="en">Other / not sure</span></label></div>
+          <div class="opt"><input type="radio" name="problem" id="p1" value="roof"><label for="p1"><span class="ms">Bumbung bocor</span><span class="en">Leaking roof</span><span class="zh">屋顶漏水</span></label></div>
+          <div class="opt"><input type="radio" name="problem" id="p2" value="ceiling"><label for="p2"><span class="ms">Siling rosak / mengendur</span><span class="en">Damaged / sagging ceiling</span><span class="zh">天花板损坏 / 下垂</span></label></div>
+          <div class="opt"><input type="radio" name="problem" id="p3" value="slab"><label for="p3"><span class="ms">Slab konkrit / bumbung rata</span><span class="en">Concrete slab / flat roof</span><span class="zh">混凝土平顶 / 平屋顶</span></label></div>
+          <div class="opt"><input type="radio" name="problem" id="p4" value="other"><label for="p4"><span class="ms">Lain-lain / tak pasti</span><span class="en">Other / not sure</span><span class="zh">其他 / 不确定</span></label></div>
         </div>
         <p class="err" id="err1" hidden></p>
-        <div class="nav"><button type="button" class="btn btn-dark next"><span class="ms">Seterusnya</span><span class="en">Next</span></button></div>
+        <div class="nav"><button type="button" class="btn btn-dark next"><span class="ms">Seterusnya</span><span class="en">Next</span><span class="zh">下一步</span></button></div>
       </fieldset>
 
       <fieldset class="step" data-step="2" hidden style="border:0;padding:0;margin:0">
-        <legend><h3><span class="ms">Bangunan &amp; lokasi</span><span class="en">Property &amp; location</span></h3></legend>
-        <p class="hint"><span class="ms">Langkah 2 / 3</span><span class="en">Step 2 / 3</span></p>
+        <legend><h3><span class="ms">Bangunan &amp; lokasi</span><span class="en">Property &amp; location</span><span class="zh">房屋类型和地点</span></h3></legend>
+        <p class="hint"><span class="ms">Langkah 2 / 3</span><span class="en">Step 2 / 3</span><span class="zh">第 2 / 3 步</span></p>
         <div class="opts">
-          <div class="opt"><input type="radio" name="property" id="t1" value="terrace"><label for="t1"><span class="ms">Rumah teres</span><span class="en">Terrace house</span></label></div>
-          <div class="opt"><input type="radio" name="property" id="t2" value="bungalow"><label for="t2"><span class="ms">Banglo / berkembar</span><span class="en">Bungalow / semi-D</span></label></div>
-          <div class="opt"><input type="radio" name="property" id="t3" value="highrise"><label for="t3"><span class="ms">Kondo / apartmen</span><span class="en">Condo / apartment</span></label></div>
-          <div class="opt"><input type="radio" name="property" id="t4" value="commercial"><label for="t4"><span class="ms">Kedai / kilang</span><span class="en">Shop lot / factory</span></label></div>
+          <div class="opt"><input type="radio" name="property" id="t1" value="terrace"><label for="t1"><span class="ms">Rumah teres</span><span class="en">Terrace house</span><span class="zh">排屋</span></label></div>
+          <div class="opt"><input type="radio" name="property" id="t2" value="bungalow"><label for="t2"><span class="ms">Banglo / berkembar</span><span class="en">Bungalow / semi-D</span><span class="zh">独立式 / 半独立式</span></label></div>
+          <div class="opt"><input type="radio" name="property" id="t3" value="highrise"><label for="t3"><span class="ms">Kondo / apartmen</span><span class="en">Condo / apartment</span><span class="zh">公寓</span></label></div>
+          <div class="opt"><input type="radio" name="property" id="t4" value="commercial"><label for="t4"><span class="ms">Kedai / kilang</span><span class="en">Shop lot / factory</span><span class="zh">店屋 / 工厂</span></label></div>
         </div>
         <div class="field">
-          <label for="area"><span class="ms">Kawasan</span><span class="en">Area</span></label>
+          <label for="area"><span class="ms">Kawasan</span><span class="en">Area</span><span class="zh">地区</span></label>
           <select id="area" name="area">
             <option value="">—</option>
             <option>Ipoh</option>
@@ -854,29 +860,29 @@ details p{font-size:17px}
           </select>
         </div>
         <p class="err" id="err2" hidden></p>
-        <div class="nav"><button type="button" class="btn back prev"><span class="ms">Kembali</span><span class="en">Back</span></button><button type="button" class="btn btn-dark next"><span class="ms">Seterusnya</span><span class="en">Next</span></button></div>
+        <div class="nav"><button type="button" class="btn back prev"><span class="ms">Kembali</span><span class="en">Back</span><span class="zh">返回</span></button><button type="button" class="btn btn-dark next"><span class="ms">Seterusnya</span><span class="en">Next</span><span class="zh">下一步</span></button></div>
       </fieldset>
 
       <fieldset class="step" data-step="3" hidden style="border:0;padding:0;margin:0">
-        <legend><h3><span class="ms">Hubungi anda di mana?</span><span class="en">How do we reach you?</span></h3></legend>
-        <p class="hint"><span class="ms">Langkah terakhir.</span><span class="en">Last step.</span></p>
-        <div class="field"><label for="name"><span class="ms">Nama</span><span class="en">Name</span></label><input id="name" name="name" autocomplete="name"></div>
-        <div class="field"><label for="phone"><span class="ms">No. telefon (WhatsApp)</span><span class="en">Phone (WhatsApp)</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="012-345 6789"></div>
-        <div class="field"><label for="note"><span class="ms">Nota (pilihan)</span><span class="en">Note (optional)</span></label><textarea id="note" name="note"></textarea></div>
+        <legend><h3><span class="ms">Hubungi anda di mana?</span><span class="en">How do we reach you?</span><span class="zh">怎么联系您？</span></h3></legend>
+        <p class="hint"><span class="ms">Langkah terakhir.</span><span class="en">Last step.</span><span class="zh">最后一步。</span></p>
+        <div class="field"><label for="name"><span class="ms">Nama</span><span class="en">Name</span><span class="zh">名字</span></label><input id="name" name="name" autocomplete="name"></div>
+        <div class="field"><label for="phone"><span class="ms">No. telefon (WhatsApp)</span><span class="en">Phone (WhatsApp)</span><span class="zh">电话（WhatsApp）</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="012-345 6789"></div>
+        <div class="field"><label for="note"><span class="ms">Nota (pilihan)</span><span class="en">Note (optional)</span><span class="zh">备注（选填）</span></label><textarea id="note" name="note"></textarea></div>
         <p class="err" id="err3" hidden></p>
-        <div class="nav"><button type="button" class="btn back prev"><span class="ms">Kembali</span><span class="en">Back</span></button><button type="submit" class="btn btn-amber"><span class="ms">Tempah pemeriksaan</span><span class="en">Book inspection</span></button></div>
-        <p class="small"><span class="ms">Maklumat anda hanya untuk menghubungi anda tentang pemeriksaan ini.</span><span class="en">Your details are only used to contact you about this inspection.</span></p>
+        <div class="nav"><button type="button" class="btn back prev"><span class="ms">Kembali</span><span class="en">Back</span><span class="zh">返回</span></button><button type="submit" class="btn btn-amber"><span class="ms">Tempah pemeriksaan</span><span class="en">Book inspection</span><span class="zh">预约检查</span></button></div>
+        <p class="small"><span class="ms">Maklumat anda hanya untuk menghubungi anda tentang pemeriksaan ini.</span><span class="en">Your details are only used to contact you about this inspection.</span><span class="zh">您的资料只会用来联系您安排这次检查。</span></p>
       </fieldset>
 
       <div class="step done" data-step="4" hidden>
-        <h3><span class="ms">Hampir siap! Hantar ke WhatsApp.</span><span class="en">Almost done! Send to WhatsApp.</span></h3>
-        <p class="hint"><span class="ms">Mesej sudah ditulis. Tekan butang, kemudian "Hantar". Lampirkan gambar bocor jika ada.</span><span class="en">Your message is ready. Tap the button, then "Send". Attach leak photos if you have them.</span></p>
+        <h3><span class="ms">Hampir siap! Hantar ke WhatsApp.</span><span class="en">Almost done! Send to WhatsApp.</span><span class="zh">快好了！发送到 WhatsApp。</span></h3>
+        <p class="hint"><span class="ms">Mesej sudah ditulis. Tekan butang, kemudian "Hantar". Lampirkan gambar bocor jika ada.</span><span class="en">Your message is ready. Tap the button, then "Send". Attach leak photos if you have them.</span><span class="zh">信息已经写好。按下按钮，再按"发送"。有漏水照片的话可以一起附上。</span></p>
         <a class="btn btn-wa" id="wa-send" href="https://wa.me/60102810866" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>
-          <span class="ms">Buka WhatsApp &amp; hantar</span><span class="en">Open WhatsApp &amp; send</span>
+          <span class="ms">Buka WhatsApp &amp; hantar</span><span class="en">Open WhatsApp &amp; send</span><span class="zh">打开 WhatsApp 发送</span>
         </a>
         <div class="msgprev" id="msgprev"></div>
-        <p class="small"><span class="ms">WhatsApp tidak terbuka? Hubungi <b>010-281 0866</b>.</span><span class="en">WhatsApp didn't open? Call <b>010-281 0866</b>.</span></p>
+        <p class="small"><span class="ms">WhatsApp tidak terbuka? Hubungi <b>010-281 0866</b>.</span><span class="en">WhatsApp didn't open? Call <b>010-281 0866</b>.</span><span class="zh">WhatsApp 打不开？请拨 <b>010-281 0866</b>。</span></p>
       </div>
     </form>
   </div>
@@ -885,16 +891,16 @@ details p{font-size:17px}
 <!-- 10. FAQ -->
 <section class="faq">
   <div class="wrap">
-    <p class="eyebrow"><span class="ms">Soalan lazim</span><span class="en">FAQ</span></p>
-    <h2><span class="ms">Masih <span class="hl">ragu-ragu?</span></span><span class="en">Still <span class="hl">unsure?</span></span></h2>
+    <p class="eyebrow"><span class="ms">Soalan lazim</span><span class="en">FAQ</span><span class="zh">常见问题</span></p>
+    <h2><span class="ms">Masih <span class="hl">ragu-ragu?</span></span><span class="en">Still <span class="hl">unsure?</span></span><span class="zh">还在<span class="hl">犹豫？</span></span></h2>
     <div class="list">
-      <details><summary><span class="ms">Betul ke percuma?</span><span class="en">Is it really free?</span></summary><p><span class="ms">Ya. Pemeriksaan dan penerangan punca tanpa caj. Anda yang buat keputusan selepas terima sebut harga.</span><span class="en">Yes. Inspection and diagnosis at no charge. You decide after seeing the quote.</span></p></details>
-      <details><summary><span class="ms">Ada waranti?</span><span class="en">Is there a warranty?</span></summary><p><span class="ms">Ada. Waranti pemasangan bertulis hingga 10 tahun, bergantung pada jenis kerja.</span><span class="en">Yes. Written installation warranty of up to 10 years, depending on the work.</span></p></details>
-      <details><summary><span class="ms">Berapa lama siap?</span><span class="en">How long does it take?</span></summary><p><span class="ms">Banyak kerja rumah siap dalam beberapa hari. Tempoh tepat ada dalam sebut harga.</span><span class="en">Many home jobs finish in a few days. The exact timeline is in your quote.</span></p></details>
-      <details><summary><span class="ms">Kawasan mana?</span><span class="en">Which areas?</span></summary><p><span class="ms">Ipoh, seluruh Perak, Pulau Pinang dan Kedah.</span><span class="en">Ipoh, all of Perak, Penang and Kedah.</span></p></details>
-      <details><summary><span class="ms">Pekerja bertauliah?</span><span class="en">Qualified workers?</span></summary><p><span class="ms">Ya. Berdaftar CIDB, patuh keselamatan DOSH, pengalaman 20+ tahun.</span><span class="en">Yes. CIDB registered, DOSH safety compliant, 20+ years' experience.</span></p></details>
+      <details><summary><span class="ms">Betul ke percuma?</span><span class="en">Is it really free?</span><span class="zh">真的免费吗？</span></summary><p><span class="ms">Ya. Pemeriksaan dan penerangan punca tanpa caj. Anda yang buat keputusan selepas terima sebut harga.</span><span class="en">Yes. Inspection and diagnosis at no charge. You decide after seeing the quote.</span><span class="zh">是的。检查和找出原因都不收费。看了报价您再决定。</span></p></details>
+      <details><summary><span class="ms">Ada waranti?</span><span class="en">Is there a warranty?</span><span class="zh">有保修吗？</span></summary><p><span class="ms">Ada. Waranti pemasangan bertulis hingga 10 tahun, bergantung pada jenis kerja.</span><span class="en">Yes. Written installation warranty of up to 10 years, depending on the work.</span><span class="zh">有。书面安装保修长达 10 年，视工程类型而定。</span></p></details>
+      <details><summary><span class="ms">Berapa lama siap?</span><span class="en">How long does it take?</span><span class="zh">要多久完工？</span></summary><p><span class="ms">Banyak kerja rumah siap dalam beberapa hari. Tempoh tepat ada dalam sebut harga.</span><span class="en">Many home jobs finish in a few days. The exact timeline is in your quote.</span><span class="zh">很多住家工程几天内完工。确切时间写在报价单里。</span></p></details>
+      <details><summary><span class="ms">Kawasan mana?</span><span class="en">Which areas?</span><span class="zh">服务哪些地区？</span></summary><p><span class="ms">Ipoh, seluruh Perak, Pulau Pinang dan Kedah.</span><span class="en">Ipoh, all of Perak, Penang and Kedah.</span><span class="zh">怡保、全霹雳、槟城和吉打。</span></p></details>
+      <details><summary><span class="ms">Pekerja bertauliah?</span><span class="en">Qualified workers?</span><span class="zh">工人有资格吗？</span></summary><p><span class="ms">Ya. Berdaftar CIDB, patuh keselamatan DOSH, pengalaman 20+ tahun.</span><span class="en">Yes. CIDB registered, DOSH safety compliant, 20+ years' experience.</span><span class="zh">有。CIDB 注册，符合 DOSH 安全标准，20 年以上经验。</span></p></details>
     </div>
-    <div style="margin-top:36px"><a class="btn btn-amber" href="#tempah"><span class="ms">Tempah pemeriksaan percuma</span><span class="en">Book your free inspection</span></a></div>
+    <div style="margin-top:36px"><a class="btn btn-amber" href="#tempah"><span class="ms">Tempah pemeriksaan percuma</span><span class="en">Book your free inspection</span><span class="zh">预约免费检查</span></a></div>
   </div>
 </section>
 
@@ -912,21 +918,21 @@ details p{font-size:17px}
       </div>
     </div>
     <div>
-      <b><span class="ms">Telefon / WhatsApp</span><span class="en">Phone / WhatsApp</span></b>
+      <b><span class="ms">Telefon / WhatsApp</span><span class="en">Phone / WhatsApp</span><span class="zh">电话 / WhatsApp</span></b>
       <p>(+60) 10-281 0866</p>
-      <button class="copy" type="button" data-copy="+60102810866"><span class="ms">Salin nombor</span><span class="en">Copy number</span></button>
+      <button class="copy" type="button" data-copy="+60102810866"><span class="ms">Salin nombor</span><span class="en">Copy number</span><span class="zh">复制号码</span></button>
     </div>
     <div>
       <b>E-mel / Email</b>
       <p>enquiry@inokalis.com.my</p>
-      <button class="copy" type="button" data-copy="enquiry@inokalis.com.my"><span class="ms">Salin e-mel</span><span class="en">Copy email</span></button>
+      <button class="copy" type="button" data-copy="enquiry@inokalis.com.my"><span class="ms">Salin e-mel</span><span class="en">Copy email</span><span class="zh">复制电邮</span></button>
     </div>
   </div>
 </footer>
 
 <nav class="mbar" aria-label="Quick actions">
   <a class="btn btn-wa wa-link" href="https://wa.me/60102810866" target="_blank" rel="noopener">WhatsApp</a>
-  <a class="btn btn-amber" href="#tempah"><span class="ms">Pemeriksaan percuma</span><span class="en">Free inspection</span></a>
+  <a class="btn btn-amber" href="#tempah"><span class="ms">Pemeriksaan percuma</span><span class="en">Free inspection</span><span class="zh">免费检查</span></a>
 </nav>
 </div>
 
@@ -939,12 +945,14 @@ details p{font-size:17px}
   /* ---------- language ---------- */
   const svgStyle = document.createElement("style");
   document.head.appendChild(svgStyle);
+  // pick the string for the current language: T({ms, en, zh})
+  const T = o => o[lang] ?? o.en;
   function setLang(l){
     lang = l;
     app.dataset.lang = l;
-    document.documentElement.lang = l === "ms" ? "ms" : "en";
+    document.documentElement.lang = {ms:"ms", en:"en", zh:"zh-Hans"}[l];
     document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.set === l)));
-    svgStyle.textContent = l === "ms" ? ".svg-en{display:none}" : ".svg-ms{display:none}";
+    svgStyle.textContent = ["ms","en","zh"].filter(x => x !== l).map(x => ".svg-" + x + "{display:none}").join("");
     try { localStorage.setItem("inok-lang", l); } catch(e){}
     updateQuiz();
     setGenericWa();
@@ -953,29 +961,31 @@ details p{font-size:17px}
 
   /* ---------- generic WhatsApp links ---------- */
   function setGenericWa(){
-    const t = lang === "ms"
-      ? "Salam Inokalis, saya ada masalah bumbung bocor dan ingin tempah pemeriksaan percuma."
-      : "Hi Inokalis, I have a roof leak and would like to book a free inspection.";
+    const t = T({
+      ms: "Salam Inokalis, saya ada masalah bumbung bocor dan ingin tempah pemeriksaan percuma.",
+      en: "Hi Inokalis, I have a roof leak and would like to book a free inspection.",
+      zh: "你好 Inokalis，我家屋顶漏水，想预约免费检查。"
+    });
     document.querySelectorAll(".wa-link").forEach(a => a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(t));
   }
 
   /* ---------- self-check quiz ---------- */
   const SYM = {
-    stain:   {ms:"Tompok air di siling", en:"Water stain on ceiling"},
-    drip:    {ms:"Air menitis bila hujan", en:"Drips when it rains"},
-    mould:   {ms:"Kulat / cat menggelembung", en:"Mould / bubbling paint"},
-    sag:     {ms:"Siling mengendur / retak", en:"Ceiling sagging / cracked"},
-    electric:{ms:"Air dekat lampu / kipas / suis", en:"Water near lights / fans / switches"},
-    repeat:  {ms:"Pernah dibaiki, bocor semula", en:"Repaired before, leaks again"},
-    tiles:   {ms:"Genting pecah / beralih", en:"Broken / shifted tiles"},
-    slab:    {ms:"Bocor dari slab / bumbung rata", en:"Leak from slab / flat roof"}
+    stain:   {ms:"Tompok air di siling", en:"Water stain on ceiling", zh:"天花板有水渍"},
+    drip:    {ms:"Air menitis bila hujan", en:"Drips when it rains", zh:"下雨时滴水"},
+    mould:   {ms:"Kulat / cat menggelembung", en:"Mould / bubbling paint", zh:"发霉 / 油漆起泡"},
+    sag:     {ms:"Siling mengendur / retak", en:"Ceiling sagging / cracked", zh:"天花板下垂 / 裂开"},
+    electric:{ms:"Air dekat lampu / kipas / suis", en:"Water near lights / fans / switches", zh:"电灯 / 风扇 / 开关旁有水"},
+    repeat:  {ms:"Pernah dibaiki, bocor semula", en:"Repaired before, leaks again", zh:"修过了，又再漏"},
+    tiles:   {ms:"Genting pecah / beralih", en:"Broken / shifted tiles", zh:"瓦片破裂 / 移位"},
+    slab:    {ms:"Bocor dari slab / bumbung rata", en:"Leak from slab / flat roof", zh:"混凝土平顶 / 平屋顶漏水"}
   };
   const boxes = [...document.querySelectorAll("#checks input")];
   const L = {
-    none:{ms:["Belum ditanda","Tanda apa yang anda nampak."],en:["Nothing ticked","Tick what you see."]},
-    low: {ms:["Risiko rendah","Masih awal. Paling murah baiki sekarang."],en:["Low risk","Still early. Cheapest to fix now."]},
-    mid: {ms:["Risiko sederhana","Air dah masuk struktur. Jangan tunggu musim hujan."],en:["Medium risk","Water is in the structure. Don't wait for the rains."]},
-    high:{ms:["Risiko tinggi","Kerosakan serius. Periksa secepat mungkin."],en:["High risk","Serious damage. Get it inspected ASAP."]}
+    none:{ms:["Belum ditanda","Tanda apa yang anda nampak."],en:["Nothing ticked","Tick what you see."],zh:["还没勾选","勾选您看到的情况。"]},
+    low: {ms:["Risiko rendah","Masih awal. Paling murah baiki sekarang."],en:["Low risk","Still early. Cheapest to fix now."],zh:["低风险","还在早期，现在修最省钱。"]},
+    mid: {ms:["Risiko sederhana","Air dah masuk struktur. Jangan tunggu musim hujan."],en:["Medium risk","Water is in the structure. Don't wait for the rains."],zh:["中风险","水已经渗进结构，别等到雨季。"]},
+    high:{ms:["Risiko tinggi","Kerosakan serius. Periksa secepat mungkin."],en:["High risk","Serious damage. Get it inspected ASAP."],zh:["高风险","损坏严重，请尽快检查。"]}
   };
   function score(){ return boxes.reduce((s,b)=> s + (b.checked ? +b.dataset.w : 0), 0); }
   function updateQuiz(){
@@ -987,7 +997,7 @@ details p{font-size:17px}
     bar.style.background = lvl === "high" ? "var(--danger)" : lvl === "mid" ? "var(--amber)" : "var(--ok)";
     document.getElementById("q-lvl").textContent = L[lvl][lang][0];
     document.getElementById("q-msg").textContent = L[lvl][lang][1];
-    document.getElementById("q-count").textContent = lang === "ms" ? n + " / 8 tanda ditanda" : n + " / 8 signs ticked";
+    document.getElementById("q-count").textContent = T({ms: n + " / 8 tanda ditanda", en: n + " / 8 signs ticked", zh: "已勾选 " + n + " / 8 项"});
   }
   boxes.forEach(b => b.addEventListener("change", updateQuiz));
 
@@ -997,9 +1007,9 @@ details p{font-size:17px}
   const bars = [...form.querySelectorAll(".prog i")];
   let cur = 1;
   const ERR = {
-    1:{ms:"Sila pilih satu masalah.",en:"Please choose a problem."},
-    2:{ms:"Sila pilih jenis bangunan dan kawasan.",en:"Please choose a property type and area."},
-    3:{ms:"Sila isi nama dan nombor telefon yang sah (contoh: 012-345 6789).",en:"Please enter your name and a valid phone number (e.g. 012-345 6789)."}
+    1:{ms:"Sila pilih satu masalah.",en:"Please choose a problem.",zh:"请选择一个问题。"},
+    2:{ms:"Sila pilih jenis bangunan dan kawasan.",en:"Please choose a property type and area.",zh:"请选择房屋类型和地区。"},
+    3:{ms:"Sila isi nama dan nombor telefon yang sah (contoh: 012-345 6789).",en:"Please enter your name and a valid phone number (e.g. 012-345 6789).",zh:"请填写名字和有效的电话号码（例如：012-345 6789）。"}
   };
   function show(n){
     cur = n;
@@ -1032,18 +1042,17 @@ details p{font-size:17px}
     if (!valid(3)) { err(3, true); return; }
     err(3, false);
     const sym = boxes.filter(b=>b.checked).map(b => "• " + SYM[b.value][lang]);
-    const ms = lang === "ms";
     const lines = [
-      ms ? "Salam Inokalis, saya ingin tempah PEMERIKSAAN PERCUMA." : "Hi Inokalis, I'd like to book a FREE INSPECTION.",
+      T({ms:"Salam Inokalis, saya ingin tempah PEMERIKSAAN PERCUMA.", en:"Hi Inokalis, I'd like to book a FREE INSPECTION.", zh:"你好 Inokalis，我想预约【免费检查】。"}),
       "",
-      (ms ? "Nama: " : "Name: ") + form.name.value.trim(),
-      (ms ? "Telefon: " : "Phone: ") + form.phone.value.trim(),
-      (ms ? "Masalah: " : "Problem: ") + labelOf("problem"),
-      (ms ? "Bangunan: " : "Property: ") + labelOf("property"),
-      (ms ? "Kawasan: " : "Area: ") + form.area.value
+      T({ms:"Nama: ", en:"Name: ", zh:"名字："}) + form.name.value.trim(),
+      T({ms:"Telefon: ", en:"Phone: ", zh:"电话："}) + form.phone.value.trim(),
+      T({ms:"Masalah: ", en:"Problem: ", zh:"问题："}) + labelOf("problem"),
+      T({ms:"Bangunan: ", en:"Property: ", zh:"房屋："}) + labelOf("property"),
+      T({ms:"Kawasan: ", en:"Area: ", zh:"地区："}) + form.area.value
     ];
-    if (sym.length) lines.push("", ms ? "Tanda-tanda:" : "Signs:", ...sym);
-    if (form.note.value.trim()) lines.push("", (ms ? "Nota: " : "Note: ") + form.note.value.trim());
+    if (sym.length) lines.push("", T({ms:"Tanda-tanda:", en:"Signs:", zh:"情况："}), ...sym);
+    if (form.note.value.trim()) lines.push("", T({ms:"Nota: ", en:"Note: ", zh:"备注："}) + form.note.value.trim());
     const msg = lines.join("\n");
     document.getElementById("wa-send").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
     document.getElementById("msgprev").textContent = msg;
@@ -1053,7 +1062,7 @@ details p{font-size:17px}
   /* ---------- copy buttons ---------- */
   document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", () => {
     const v = b.dataset.copy, old = b.innerHTML;
-    const done = () => { b.textContent = lang === "ms" ? "Disalin ✓" : "Copied ✓"; setTimeout(()=> b.innerHTML = old, 1600); };
+    const done = () => { b.textContent = T({ms:"Disalin ✓", en:"Copied ✓", zh:"已复制 ✓"}); setTimeout(()=> b.innerHTML = old, 1600); };
     try { navigator.clipboard.writeText(v).then(done, () => selectText(b)); } catch(e){ selectText(b); }
   }));
   function selectText(b){ const p = b.previousElementSibling; const r = document.createRange(); r.selectNodeContents(p); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
@@ -1065,12 +1074,12 @@ details p{font-size:17px}
     const path = $("exPath"), len = path.getTotalLength();
     const S = [0, 3, 6, 10, 14, 18.5], END = 25;
     const CAP = [
-      {ms:'Hujan lebat turun.', en:'Heavy rain falls.'},
-      {ms:'Air masuk ikut <span class="hl">genting retak</span> di sini.', en:'Water gets in through a <span class="hl">cracked tile</span> here.'},
-      {ms:'Ia mengalir di bawah genting, ikut kayu kekuda…', en:'It runs under the tiles, along the roof timber…'},
-      {ms:'…dan menitis <span class="hl">jauh dari punca.</span>', en:'…and drips <span class="hl">far from the source.</span>'},
-      {ms:'Tukang biasa tampal siling. <span class="hl">Bocor tetap kembali.</span>', en:'Most contractors patch the ceiling. <span class="hl">The leak comes back.</span>'},
-      {ms:'INOKALIS baiki <span class="hl">punca sebenar.</span> Kering.', en:'INOKALIS fixes <span class="hl">the real source.</span> Dry.'}
+      {ms:'Hujan lebat turun.', en:'Heavy rain falls.', zh:'下大雨了。'},
+      {ms:'Air masuk ikut <span class="hl">genting retak</span> di sini.', en:'Water gets in through a <span class="hl">cracked tile</span> here.', zh:'雨水从这块<span class="hl">裂开的瓦片</span>渗进去。'},
+      {ms:'Ia mengalir di bawah genting, ikut kayu kekuda…', en:'It runs under the tiles, along the roof timber…', zh:'水在瓦片底下，沿着屋架木头流动……'},
+      {ms:'…dan menitis <span class="hl">jauh dari punca.</span>', en:'…and drips <span class="hl">far from the source.</span>', zh:'……然后在<span class="hl">离源头很远的地方</span>滴下来。'},
+      {ms:'Tukang biasa tampal siling. <span class="hl">Bocor tetap kembali.</span>', en:'Most contractors patch the ceiling. <span class="hl">The leak comes back.</span>', zh:'一般师傅只补天花板，<span class="hl">漏水还是会回来。</span>'},
+      {ms:'INOKALIS baiki <span class="hl">punca sebenar.</span> Kering.', en:'INOKALIS fixes <span class="hl">the real source.</span> Dry.', zh:'INOKALIS 修好<span class="hl">真正的源头。</span>不再漏。'}
     ];
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const clamp = (v,a=0,b=1) => Math.max(a, Math.min(b, v));
@@ -1105,7 +1114,7 @@ details p{font-size:17px}
       let sc = 0; S.forEach((s, i) => { if (t >= s) sc = i; });
       if (sc !== scene){
         scene = sc;
-        $("exText").innerHTML = '<span class="ms">' + CAP[sc].ms + '</span><span class="en">' + CAP[sc].en + '</span>';
+        $("exText").innerHTML = '<span class="ms">' + CAP[sc].ms + '</span><span class="en">' + CAP[sc].en + '</span><span class="zh">' + CAP[sc].zh + '</span>';
         $("exStep").textContent = (sc + 1) + "/6";
         dots.forEach((d, i) => d.classList.toggle("on", i === sc));
       }
@@ -1173,7 +1182,7 @@ details p{font-size:17px}
     const box = document.createElement("div");
     box.className = "lbx"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true");
     const big = document.createElement("img"); big.src = img.src; big.alt = "";
-    const x = document.createElement("button"); x.type = "button"; x.textContent = "✕"; x.setAttribute("aria-label", lang === "ms" ? "Tutup" : "Close");
+    const x = document.createElement("button"); x.type = "button"; x.textContent = "✕"; x.setAttribute("aria-label", T({ms:"Tutup", en:"Close", zh:"关闭"}));
     const close = () => { box.remove(); document.removeEventListener("keydown", esc); img.focus?.(); };
     const esc = e => { if (e.key === "Escape") close(); };
     box.addEventListener("click", e => { if (e.target !== big) close(); });
@@ -1207,7 +1216,7 @@ details p{font-size:17px}
   /* ---------- init ---------- */
   let saved = "ms";
   try { saved = localStorage.getItem("inok-lang") || "ms"; } catch(e){}
-  setLang(saved === "en" ? "en" : "ms");
+  setLang(["en","zh"].includes(saved) ? saved : "ms");
 })();
 </script>
 </body>
