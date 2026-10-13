@@ -9,6 +9,7 @@
 <meta property="og:image" content="img/hero-main.jpg">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Inokalis Bumbung Bocor</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Public+Sans:wght@400;500;600;700&display=swap">
@@ -343,6 +344,13 @@ footer b{color:#fff;display:block;margin-bottom:8px;font-family:var(--f-display)
 .ex-big .pl::before{content:"";border-left:26px solid var(--amber-ink);border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:7px}
 .ex-more{display:inline-flex;margin-top:14px;font-weight:700;font-size:15px;color:var(--ink)}
 
+/* ===== LOGO ===== */
+.top .wrap{height:68px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:50px;height:50px;object-fit:contain;background:#fff;border-radius:50%;padding:3px;flex:none}
+.foot-logo{display:block;width:120px;height:auto;background:#fff;border-radius:14px;padding:8px;margin-bottom:16px}
+@media (max-width:420px){.brand small{display:none}.brand-logo{width:44px;height:44px}}
+
 /* ===== FOLLOW / SOCIALS ===== */
 .follow{margin-top:40px;padding:24px;border-radius:16px;background:var(--storm-2);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center}
 .follow h3{font-size:clamp(26px,3vw,34px);color:#fff}
@@ -431,7 +439,7 @@ details p{font-size:17px}
 <!-- TOP -->
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top">INOKALIS<small>ROOFING · WATERPROOFING</small></a>
+    <a class="brand" href="#top"><img class="brand-logo" src="img/logo.png" alt="Logo INOKALIS Sdn. Bhd."><span>INOKALIS<small>ROOFING · WATERPROOFING</small></span></a>
     <div class="spacer"></div>
     <div class="lang" role="group" aria-label="Bahasa / Language">
       <button type="button" id="lang-ms" data-set="ms" aria-pressed="true">BM</button>
@@ -893,6 +901,7 @@ details p{font-size:17px}
 <footer>
   <div class="wrap">
     <div>
+      <img class="foot-logo" src="img/logo.png" alt="INOKALIS Sdn. Bhd. · We Build Excellent" loading="lazy">
       <b>INOKALIS SDN. BHD.</b>
       <p>202401052999 (1598842-A)</p>
       <p style="margin-top:8px">Kawasan Perindustrian Ringan, 36, Lengkok Jelapang Maju, Jelapang, 30020 Ipoh, Perak</p>
